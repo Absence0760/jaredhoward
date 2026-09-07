@@ -43,7 +43,10 @@ export const site = {
 		{ href: '/', label: 'Home' },
 		{ href: '/services/', label: 'Services' },
 		{ href: '/work/', label: 'Work' },
-		{ href: '/capabilities/', label: 'Capabilities' },
+		// Labelled "Experience" but served from /capabilities/ on purpose: the
+		// path is what federal buyers have already been given, and a static
+		// site cannot redirect. Don't "fix" the mismatch by moving the route.
+		{ href: '/capabilities/', label: 'Experience' },
 		{ href: '/cv/', label: 'CV' },
 		{ href: '/contact/', label: 'Contact' }
 	] satisfies NavLink[],

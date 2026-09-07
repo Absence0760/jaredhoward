@@ -70,7 +70,7 @@
 		</ul>
 		<p>
 			For the full federal profile — core competencies, differentiators, and corporate data — see
-			the <a href="/capabilities/">capability statement</a>.
+			the <a href="/capabilities/">Experience</a> page, which doubles as the capability statement.
 		</p>
 
 		<h2 id="how-i-work">How I work</h2>

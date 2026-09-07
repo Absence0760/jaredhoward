@@ -39,11 +39,10 @@
 			</p>
 
 			<div class="hero-actions">
-				<a class="button button-primary hero-in hero-in-cta1" href="/contact/">
-					<span>Start a project</span>
+				<a class="button button-primary hero-in hero-in-cta1" href="/capabilities/">
+					<span>Experience</span>
 					<Icon name="arrow" size={17} class="icon-nudge" />
 				</a>
-				<a class="button button-outline hero-in hero-in-cta2" href="/capabilities/">Capabilities</a>
 			</div>
 		</div>
 	</section>
@@ -109,19 +108,21 @@
 	<section class="band" aria-labelledby="about-label">
 		<div class="band-head" data-reveal use:reveal={{}}>
 			<h2 class="band-label" id="about-label">About</h2>
-			<!-- No band-action here: the closing CTA below points to the same
-			     place at far greater weight, and two links to /contact/ in one
-			     band is a choice the reader has to make for no reason. The rule
-			     runs the full measure instead. -->
+			<!-- No band-action here: the closing CTA below is the page's only
+			     action and carries far greater weight. The rule runs the full
+			     measure instead. -->
 			<span class="band-rule" aria-hidden="true"></span>
 		</div>
 
 		<!-- Two columns, because this is the page's last beat and it was ending on
-		     a biography. The bio keeps its place; the right column is the terminal
-		     CTA the page never had — at hero-CTA weight, not the 14px muted
-		     band-action in the head above. It also fills the ~40% of empty band
-		     that a single paragraph left, so the page's rhythm doesn't decay to
-		     nothing right at the end. -->
+		     a biography. The bio keeps its place; the right column is the page's
+		     only call to action. It is a bare mailto by design — the button that
+		     used to sit here sent the reader to /contact/ to find the address
+		     they can now just click. That makes it the sole conversion path on
+		     the page, so it is set at lead weight, not the 14px muted treatment
+		     it wore when a button carried the load above it. It also fills the
+		     ~40% of empty band a single paragraph left, so the page's rhythm
+		     doesn't decay to nothing right at the end. -->
 		<div class="about-grid">
 			<p class="about-copy" data-reveal use:reveal={{}}>
 				I'm based in Virginia and work as a QA-minded software engineer, building and maintaining
@@ -132,12 +133,8 @@
 
 			<div class="about-cta" data-reveal use:reveal={{ index: 1 }}>
 				<p class="about-cta-lead">Have something you need built?</p>
-				<a class="button button-primary" href="/contact/">
-					<span>Start a project</span>
-					<Icon name="arrow" size={16} class="icon-nudge" />
-				</a>
-				<a class="about-cta-mail" href="mailto:{site.email}">
-					<Icon name="mail" size={16} />
+				<a class="about-cta-mail about-cta-mail-lead" href="mailto:{site.email}">
+					<Icon name="mail" size={18} />
 					<span>{site.email}</span>
 				</a>
 			</div>

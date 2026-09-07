@@ -7,6 +7,10 @@
 	// in roughly its old position.
 	// NOTE: the UEI/CAGE rows go into this same <dl class="capability-data">
 	// once SAM.gov registration completes — see docs/sam-gov-checklist.md.
+	//
+	// This page is titled "Experience" for a general audience, but it *is* the
+	// federal capability statement: the corporate-data rail, the NAICS codes and
+	// the SAM.gov checklist all still apply. The route stays /capabilities/.
 	const sections = [
 		{ id: 'core-competencies', label: 'Core competencies' },
 		{ id: 'differentiators', label: 'Differentiators' },
@@ -15,21 +19,21 @@
 </script>
 
 <svelte:head>
-	<title>Capability Statement | Jared Howard</title>
+	<title>Experience | Jared Howard</title>
 	<meta
 		name="description"
-		content="Federal capability statement for Jared Howard — custom software and web development, test automation, and cloud services. NAICS 541511 / 541512 / 513210."
+		content="Experience and capabilities of Jared Howard — custom software and web development, test automation, and cloud services. NAICS 541511 / 541512 / 513210."
 	/>
 </svelte:head>
 
 <article class="prose">
 	<header class="prose-header">
-		<h1>Capability Statement</h1>
+		<h1>Experience</h1>
 	</header>
 
 	<div class="post-content">
 		<p>
-			<strong>Jared Howard</strong> — Sole proprietor, Commonwealth of Virginia. Custom software and
+			<strong>Jared Howard</strong> — Sole proprietor, Virginia. Custom software and
 			web development, test automation, and cloud services for commercial and government clients.
 		</p>
 
@@ -110,7 +114,7 @@
 			<dd>Jared Howard (sole proprietor)</dd>
 
 			<dt>Location</dt>
-			<dd>Commonwealth of Virginia, United States</dd>
+			<dd>Virginia, United States</dd>
 
 			<dt>Primary NAICS</dt>
 			<dd>541511 — Custom Computer Programming Services</dd>
@@ -129,7 +133,7 @@
 			<dd>Small Business. Other set-aside eligibility under evaluation.</dd>
 
 			<dt>Point of contact</dt>
-			<dd>Jared Howard — <a href="mailto:contact@jaredhoward.com">contact@jaredhoward.com</a></dd>
+			<dd>Jared Howard — <a href="mailto:jared@jaredhoward.com">jared@jaredhoward.com</a></dd>
 			</dl>
 	</div>
 </SectionRail>

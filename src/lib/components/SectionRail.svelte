@@ -12,7 +12,7 @@
 	// that field a job rather than deleting it.
 	//
 	// Two independent parts, either optional:
-	//   · `children` — a card. Used by Capabilities to lift the corporate-data
+	//   · `children` — a card. Used by Experience (/capabilities/) to lift the corporate-data
 	//     block (the first thing a SAM.gov buyer scans for) off the bottom of a
 	//     long page, and by Contact to surface the email address.
 	//   · `sections` — an index of the page's own h2s.

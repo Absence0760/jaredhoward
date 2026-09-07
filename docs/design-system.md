@@ -69,7 +69,7 @@ Shared by every route:
 - **`.button`** (`-primary` / `-outline`) — the only button family. The CV's
   download link uses it.
 
-The reading column (Services, Capabilities, CV, Contact, the legal pages, the
+The reading column (Services, Experience, CV, Contact, the legal pages, the
 error page):
 
 - **`.prose` / `.prose-header` / `.post-content`** — sans-serif long-form at a
@@ -111,7 +111,7 @@ banner.
 | Hero graphic | co-equal subject, bleeding past the right margin | same | **atmosphere** — recropped, 4 bands not 7, dimmed and scrimmed behind the copy |
 | Selected work | 3-up grid | 2-up grid | snap-scroller, 82vw cards, peek + a progress track whose thumb is `clientWidth / scrollWidth` |
 | Stream card | 56px icon tile above the heading | same | 40px tile inline **beside** the heading, copy below both |
-| CTAs | inline pair | inline pair | full-width stacked, 52px |
+| CTAs | single primary button | single primary button | full-width, 52px |
 | Footer links | inline row | inline row | 2×2 grid (single column below 400px) |
 
 ### Focal hierarchy
@@ -247,7 +247,7 @@ pixel in that box — not against the token the ground nominally is.
 
 ### The reading column
 
-Services, Capabilities, CV, Contact and the three legal pages share
+Services, Experience, CV, Contact and the three legal pages share
 `<main class="page">` inside the same shell. They keep the markup they always
 had — `.prose` / `.prose-header` / `.post-content`, and `.cv` — and pick up the
 token layer instead of a separate palette: the `.prose-header` and `.cv h2`
@@ -318,7 +318,7 @@ is 68ch inside a 1280px page, which left ~450px of dead field down the right of
 every interior route — read as a failed load rather than as air, because the
 footer card below spanned the full width and retroactively announced the page
 had been that wide all along. The rail gives that field a job: an optional card
-plus an index of the page's own `h2`s. Capabilities uses the card to lift the
+plus an index of the page's own `h2`s. Experience uses the card to lift the
 corporate-data `<dl>` off the bottom of a long page (it is the first thing a
 SAM.gov buyer scans for); Contact uses it for the address, which was buried in
 its third paragraph. Below 1080px the rail stops being a column and its
@@ -349,10 +349,17 @@ edges), the minimum-distance property, and a link taller than the box.
 **The About band closes the page, it doesn't trail off.** It was a single
 paragraph in a full-bleed band — ~40% empty, no structure, and the last beat of
 a conversion page was a biography whose only call to action was a 14px muted
-`band-action`. It is now two columns: bio left, a terminal CTA right at
-hero-CTA weight with the address under it. The head's `band-action` was removed
-with it — two links to `/contact/` in one band is a choice the reader has to
-make for no reason.
+`band-action`. It is now two columns: bio left, a terminal CTA right. The
+head's `band-action` was removed with it.
+
+That terminal CTA is a bare `mailto:` (`.about-cta-mail-lead`), not a button.
+The "Start a project" button that used to sit here — and its twin in the hero —
+routed the reader to `/contact/` to *find* an address they can now simply
+click, so both were removed. The mailto is consequently the landing page's only
+call to action, which is why it is promoted out of the 14px muted
+`.about-cta-mail` treatment to body weight in accent colour. `/contact/` itself
+stays: it is the subject-line routing page the legal pages cite as the notice
+channel, reachable from the masthead nav and the footer.
 
 **The odd last work card spans.** Three featured projects into the 720–1079px
 two-column grid orphaned the last one at identical width to its siblings with a
