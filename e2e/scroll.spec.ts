@@ -114,6 +114,7 @@ test.describe('the rail marker still does its job', () => {
 		// at 900px tall it fits, and the code path under test never runs.
 		await page.setViewportSize({ width: 1440, height: 420 });
 		await page.goto('/terms/', { waitUntil: 'networkidle' });
+		await page.waitForTimeout(250);
 
 		const overflowing = await page.evaluate(() => {
 			const box = document.querySelector('.section-rail-inner');
@@ -121,26 +122,72 @@ test.describe('the rail marker still does its job', () => {
 		});
 		expect(overflowing, 'expected the rail index to overflow at this height').toBe(true);
 
+		// This walks the document heading by heading rather than wheeling down in
+		// fixed steps, and that is deliberate. SectionRail's observer uses
+		// `rootMargin: '-96px 0px -72% 0px'`, which at 420px tall is a detection
+		// band barely 22px deep. A 300px wheel step jumps a heading clean over it
+		// between two animation frames, so no entry is ever reported and the marker
+		// never moves — meaning the wheel version of this test passed or failed on
+		// whether the headings happened to land inside a 22px window. A one-line
+		// copy edit in §1 reflowed the page and turned it red without changing any
+		// behaviour it claims to cover. Landing each heading inside the band drives
+		// the same code path deterministically.
+		const BAND_TOP = 96; // rootMargin top inset, in px
+		const BAND_BOTTOM_FRACTION = 0.72; // rootMargin bottom inset, of viewport
+
+		const ids = await page.$$eval('.rail-index a[href^="#"]', (els) =>
+			els.map((el) => (el as HTMLAnchorElement).getAttribute('href')!.slice(1))
+		);
+		expect(ids.length, 'no rail index to walk').toBeGreaterThan(8);
+
 		const railTops: number[] = [];
-		const pageTops: number[] = [];
-		for (let i = 0; i < 40; i++) {
-			await page.mouse.wheel(0, STEP);
-			await page.waitForTimeout(110);
+		const marked: string[] = [];
+		const drift: string[] = [];
+
+		for (const id of ids) {
+			const target = await page.evaluate(
+				({ id, bandTop, bandBottomFraction }) => {
+					const el = document.getElementById(id);
+					if (!el) return null;
+					// Centre the heading in the observer's band.
+					const bandEnd = window.innerHeight * (1 - bandBottomFraction);
+					const offset = bandTop + (bandEnd - bandTop) / 2;
+					const top = Math.round(el.getBoundingClientRect().top + window.scrollY - offset);
+					window.scrollTo({ top, behavior: 'instant' });
+					return top;
+				},
+				{ id, bandTop: BAND_TOP, bandBottomFraction: BAND_BOTTOM_FRACTION }
+			);
+			if (target === null) continue;
+
+			// Give the observer and the rail's effect a chance to run and settle.
+			await page.waitForTimeout(120);
+
 			const sample = await page.evaluate(() => ({
 				rail: Math.round(document.querySelector('.section-rail-inner')!.scrollTop),
-				page: Math.round(window.scrollY)
+				page: Math.round(window.scrollY),
+				active:
+					document.querySelector('.rail-index a.is-active')?.getAttribute('href')?.slice(1) ?? null
 			}));
+
 			railTops.push(sample.rail);
-			pageTops.push(sample.page);
+			if (sample.active) marked.push(sample.active);
+			// The original bug: reacting to the new active item dragged the document
+			// away from where the reader had put it. 2px for sub-pixel rounding.
+			if (Math.abs(sample.page - target) > 2) drift.push(`${id}: ${target}→${sample.page}`);
 		}
 
-		// The rail moved...
+		// The marker actually tracked — without this the two assertions below are
+		// vacuous, which is exactly how the wheel version failed silently.
+		expect(new Set(marked).size, `the active marker never moved (saw: ${marked.join(', ')})`)
+			.toBeGreaterThan(3);
+
+		// The rail moved its own box...
 		const railTravel = Math.max(...railTops) - Math.min(...railTops);
 		expect(railTravel, 'the rail never scrolled its own box').toBeGreaterThan(0);
 
-		// ...and the document never went backwards while it did.
-		const backwards = pageTops.filter((y, i) => i > 0 && y < pageTops[i - 1] - 2);
-		expect(backwards, 'the rail moved the document instead of itself').toEqual([]);
+		// ...and never took the document with it.
+		expect(drift, `the rail moved the document instead of itself: ${drift.join(', ')}`).toEqual([]);
 	});
 
 	test('the active marker tracks the heading being read', async ({ page }) => {
