@@ -45,7 +45,7 @@
 	<header class="cv-print-header">
 		<h1>{site.title}</h1>
 		<p>
-			{site.role} · <a href="mailto:contact@jaredhoward.com">contact@jaredhoward.com</a> ·
+			{site.role} · <a href="mailto:jared@jaredhoward.com">jared@jaredhoward.com</a> ·
 			<a href={site.url}>jaredhoward.com</a>
 		</p>
 	</header>

@@ -13,7 +13,7 @@ configuration, the GitHub Actions workflows under `.github/`, or anywhere
 else in this repository — please report it privately rather than opening a
 public issue or pull request.
 
-**Email:** [contact@jaredhoward.com](mailto:contact@jaredhoward.com)
+**Email:** [jared@jaredhoward.com](mailto:jared@jaredhoward.com)
 **Subject line:** "Security report — jaredhoward.com"
 
 Please include:

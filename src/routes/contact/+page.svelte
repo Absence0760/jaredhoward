@@ -22,7 +22,7 @@
 
 	<div class="post-content">
 		<p>
-			I'm Jared Howard, doing business as a sole proprietor in the Commonwealth of Virginia — the
+			I'm Jared Howard, doing business as a sole proprietor in Virginia — the
 			same legal entity referred to as "we" / "us" in our <a href="/terms/">Terms of Service</a> and
 			<a href="/privacy/">Privacy Policy</a>. The "I" / "me" voice on this page is the same person.
 		</p>
@@ -30,7 +30,7 @@
 		<p>The best way to reach me is by email:</p>
 
 		<p>
-			<strong><a href="mailto:contact@jaredhoward.com">contact@jaredhoward.com</a></strong>
+			<strong><a href="mailto:jared@jaredhoward.com">jared@jaredhoward.com</a></strong>
 		</p>
 
 		<p>

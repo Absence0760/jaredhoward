@@ -35,8 +35,8 @@
 		<p><em>Effective: May 14, 2026. Last reviewed: May 14, 2026.</em></p>
 
 		<p>
-			This Privacy Policy explains how Jared Howard, a sole proprietor based in the Commonwealth of
-			Virginia ("<strong>we</strong>", "<strong>our</strong>", "<strong>us</strong>"), collects,
+			This Privacy Policy explains how Jared Howard, a sole proprietor based in Virginia
+			("<strong>we</strong>", "<strong>our</strong>", "<strong>us</strong>"), collects,
 			uses, discloses, and protects personal information ("<strong>PI</strong>") about visitors to
 			this website and customers of our software products and development services (collectively, the
 			"<strong>services</strong>"). It also describes the rights US residents have over their
@@ -292,7 +292,7 @@
 		<h2 id="how-to-exercise-your-rights">6. How to exercise your rights</h2>
 		<p>Send a request by email to:</p>
 		<p>
-			<strong><a href="mailto:contact@jaredhoward.com">contact@jaredhoward.com</a></strong>
+			<strong><a href="mailto:jared@jaredhoward.com">jared@jaredhoward.com</a></strong>
 		</p>
 		<p>Use the subject line <strong>"Privacy request"</strong>. In the body, please tell us:</p>
 		<ol>
@@ -397,7 +397,7 @@
 		</p>
 		<p>
 			<strong>Jared Howard</strong><br />
-			<a href="mailto:contact@jaredhoward.com">contact@jaredhoward.com</a><br />
+			<a href="mailto:jared@jaredhoward.com">jared@jaredhoward.com</a><br />
 			Subject line: <strong>"Privacy request"</strong> (or <strong>"Privacy question"</strong> for
 			general inquiries).
 		</p>

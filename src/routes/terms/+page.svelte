@@ -41,7 +41,7 @@
 
 		<p>
 			These Terms of Service ("<strong>Terms</strong>") are a binding agreement between Jared Howard,
-			a sole proprietor based in the Commonwealth of Virginia ("<strong>we</strong>",
+			a sole proprietor based in Virginia ("<strong>we</strong>",
 			"<strong>our</strong>", "<strong>us</strong>"), and the individual or organization accessing
 			our website or using the software products and development services we provide ("<strong
 				>you</strong
@@ -471,7 +471,7 @@
 		</p>
 		<p>
 			<strong>Jared Howard</strong><br />
-			<a href="mailto:contact@jaredhoward.com">contact@jaredhoward.com</a>
+			<a href="mailto:jared@jaredhoward.com">jared@jaredhoward.com</a>
 		</p>
 	</div>
 </article>
