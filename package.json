@@ -1,5 +1,5 @@
 {
-  "name": "project-personal-website",
+  "name": "jaredhoward",
   "private": true,
   "type": "module",
   "description": "Personal website at jaredhoward.com — SvelteKit static site deployed to GitHub Pages.",

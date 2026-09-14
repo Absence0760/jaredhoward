@@ -1,6 +1,6 @@
 # infra/ — Terraform for the jaredhoward.com DNS zone
 
-This account (the "Jared" account, SSO profile `personal-website`) is
+This account (the `jaredhoward` account, SSO profile `jaredhoward`) is
 deliberately tiny: the website itself is served by
 **GitHub Pages** (no S3/CloudFront/ACM in this account), so the only
 provisioned AWS resource is the **`jaredhoward.com` Route 53 hosted zone**.
@@ -20,7 +20,7 @@ infra/
   dns/          the zone + all records (REMOTE state in that bucket)
 ```
 
-Convention mirrors `project-running/infra` (sibling repo): an S3 backend with
+Convention mirrors `threkir/infra` (sibling repo): an S3 backend with
 S3-native locking (`use_lockfile = true`, Terraform ≥ 1.10 — no DynamoDB), one
 KMS-free state bucket per account. There is **no `infra-secrets` subdir for this
 project** — a static GitHub-Pages site with public DNS has nothing to encrypt.
@@ -45,8 +45,8 @@ To re-run from scratch (new account, lost state), follow the same shape:
 `bootstrap` apply with local state → `dns` `terraform init` + import
 blocks → plan gated on **zero add/change/destroy** → apply → retire the
 import blocks and confirm "No changes". All commands require
-`AWS_PROFILE=personal-website` and a live SSO session
-(`aws sso login --profile personal-website`).
+`AWS_PROFILE=jaredhoward` and a live SSO session
+(`aws sso login --profile jaredhoward`).
 
 ## Steady state
 
@@ -56,7 +56,11 @@ deploy role for DNS (the website deploys separately via GitHub Pages /
 `actions/deploy-pages`). State lives in the
 `personal-website-tfstate-136758763748` bucket (account-ID-suffixed per the
 estate `<slug>-tfstate-<account-id>` convention — the bare name was already
-taken globally); losing your laptop is fine — re-`init` elsewhere after
+taken globally). The bucket and the `Project = "personal-website"` default
+tag keep the slug from before the 2026-09-14 rename (account `Jared`, repo
+`project-personal-website`, profile `personal-website`, all now
+`jaredhoward`): S3 buckets can't be renamed, and a tag isn't worth an apply.
+Losing your laptop is fine — re-`init` elsewhere after
 `aws sso login`.
 
 ## Cross-repo coupling: the disag.jaredhoward.com delegation

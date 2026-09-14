@@ -1,4 +1,4 @@
-# project-personal-website
+# jaredhoward
 
 Professional services website for **Jared Howard** — custom web and software
 development for small businesses and government agencies — at

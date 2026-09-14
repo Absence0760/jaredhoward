@@ -28,7 +28,7 @@ The site also serves as the public business URL for Stripe sign-up. That means t
 
 ## Root package.json scripts — estate format
 
-Root `scripts` follow the estate-wide format canonized in the templates repo's `base` CLAUDE.md; the exemplar is `project-running/package.json` — read it before restructuring this repo's scripts:
+Root `scripts` follow the estate-wide format canonized in the templates repo's `base` CLAUDE.md; the exemplar is `threkir/package.json` — read it before restructuring this repo's scripts:
 
 - `"//-- <group> --": "<one-line description>"` comment-key dividers above each cluster; the description carries load-bearing facts (ports, prerequisites, doc pointers), not filler.
 - Verb-first, colon-namespaced names: `dev`/`preview`, `build`, `check[:*]`, `test[:*]` (`test:scripts` is the format guard). Long-running services would reuse the lifecycle verbs `up`/`down`/`status`/`logs`.
@@ -77,9 +77,9 @@ Run these as slash-commands. Each delegates to a specialised agent in `.claude/a
 - `docs/design-system.md` — the visual language (tokens, focal hierarchy, the two landing compositions, the reading column, the hero graphic, motion, a11y) that lives in the single `src/app.css`. Read before restyling; **system fonts only** — no external font/script (Privacy rule).
 - `src/lib/site.ts` — site metadata (title, `role` for the masthead lockup, description, `url` for canonical/sitemap, `github`/`email`, primary + footer nav, and the `projects` list with the `kind`/`cardBlurb`/`featured`/`thumb` fields the home page's work cards render). The old `config.toml` lives here now.
 - `docs/domain-setup.md` — how the GitHub Pages + Route 53 + custom domain wiring was set up.
-- `infra/` — **Terraform for the `jaredhoward.com` Route 53 zone** (the only AWS resource in this account; the site itself is GitHub Pages). `infra/bootstrap` creates the S3 state bucket; `infra/dns` holds the zone + all records, adopted from the live zone by `terraform import`. Applied locally with `AWS_PROFILE=personal-website`. **DNS is no longer hand-edited in the console** — see `infra/README.md`. No `infra-secrets` subdir: a static site with public DNS has nothing to encrypt.
+- `infra/` — **Terraform for the `jaredhoward.com` Route 53 zone** (the only AWS resource in this account; the site itself is GitHub Pages). `infra/bootstrap` creates the S3 state bucket; `infra/dns` holds the zone + all records, adopted from the live zone by `terraform import`. Applied locally with `AWS_PROFILE=jaredhoward`. **DNS is no longer hand-edited in the console** — see `infra/README.md`. No `infra-secrets` subdir: a static site with public DNS has nothing to encrypt.
 - `docs/todo.md` — infra/DNS backlog: the `infra/` Terraform adoption (applied 2026-07-10; zone is live-managed by Terraform now) and the **cross-repo `disag.jaredhoward.com` delegation** that this repo and `project-disag` must keep in sync.
-- `docs/email-setup.md` — email for `@jaredhoward.com` is hosted by **Migadu** (managed IMAP/SMTP; self-hosting was rejected). The MX/SPF/DKIM/DMARC records live in the `jaredhoward.com` Route 53 zone (this `project-personal-website` account), now **codified in `infra/dns`** (Terraform). Read before touching DNS or the contact address.
+- `docs/email-setup.md` — email for `@jaredhoward.com` is hosted by **Migadu** (managed IMAP/SMTP; self-hosting was rejected). The MX/SPF/DKIM/DMARC records live in the `jaredhoward.com` Route 53 zone (this `jaredhoward` account), now **codified in `infra/dns`** (Terraform). Read before touching DNS or the contact address.
 - `docs/legal-status.md` — pre-counsel tracker for the four legal pages; **read before editing any of them**.
 - `docs/sam-gov-checklist.md` — what to obtain (UEI, CAGE, NAICS, certs) to replace the capability-statement placeholders once SAM.gov registration is done.
 - `docs/smooth-transitions.md` — feature note for the page cross-fade (now the View Transitions API, wired in `src/routes/+layout.svelte`).

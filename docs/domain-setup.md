@@ -18,7 +18,7 @@ to be repointed or replaced. The repo's current state is:
 > [`infra/dns`](../infra/README.md) and were adopted from the live zone by
 > `terraform import` — nothing was recreated. In steady state, change DNS by
 > editing `infra/dns/records.tf` (or the defaults in `variables.tf`) and running
-> `terraform plan` / `apply` as `AWS_PROFILE=personal-website`. The console
+> `terraform plan` / `apply` as `AWS_PROFILE=jaredhoward`. The console
 > recipe below is retained as reference and disaster-recovery; don't hand-edit
 > records in the console anymore, or Terraform will show drift.
 

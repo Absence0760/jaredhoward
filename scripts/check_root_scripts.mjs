@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Estate root-scripts format guard, adapted for this flat (single-package) repo.
-// See project-running/scripts/check_root_scripts.mjs for the workspace variant.
+// See threkir/scripts/check_root_scripts.mjs for the workspace variant.
 //
 // Enforces two things about package.json "scripts":
 //   1. The CI contract: dev / build / check / test all exist (ci.yml + deploy.yml
