@@ -117,7 +117,7 @@ main.page {
 .section-rail-inner > * + * { margin-top: var(--s-8); }
 
 /* Below 1080px the rail is not a column: its contents flow in document order,
-   i.e. AFTER the prose. A card still reads correctly there — Capabilities'
+   i.e. AFTER the prose. A card still reads correctly there — Experience's
    corporate data lands where it used to live, at the end of the statement, and
    Contact's address makes a fair closing summary. An index does not: a list of
    jump links placed after the thing it indexes is worse than no list. So the
@@ -161,7 +161,7 @@ main.page {
   border-left-color: var(--l-accent);
 }
 
-/* A card lifted into the rail — Capabilities' corporate data, Contact's email. */
+/* A card lifted into the rail — Experience's corporate data, Contact's email. */
 .rail-card {
   border-radius: var(--r-xl);
   border: 1px solid var(--l-line);
@@ -1669,6 +1669,14 @@ main.landing {
   transition: color 200ms var(--ease-out-quart);
 }
 .about-cta-mail:hover { color: var(--l-accent-text); text-decoration: none; }
+/* The closing mailto is now the page's only call to action — the button
+   that used to outrank it is gone — so it is promoted out of the muted
+   14px treatment and sits at body weight in full foreground colour. */
+.about-cta-mail-lead {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--l-accent-text);
+}
 
 .about-copy {
   max-width: 62ch;
@@ -1851,7 +1859,6 @@ main.landing {
 .hero-in-title   { --in-delay: 260ms; --in-dur: 760ms; --rise: 18px; }
 .hero-in-lead    { --in-delay: 340ms; --in-dur: 560ms; --rise: 14px; }
 .hero-in-cta1    { --in-delay: 420ms; --in-dur: 480ms; --rise: 12px; }
-.hero-in-cta2    { --in-delay: 480ms; --in-dur: 480ms; --rise: 12px; }
 
 .hairline-in {
   animation: hairline 620ms var(--ease-out-expo) 140ms both;

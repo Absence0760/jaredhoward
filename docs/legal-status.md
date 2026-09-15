@@ -14,7 +14,11 @@ customer-facing.
 ## Configuration baked into the current drafts
 
 - **Legal entity.** Jared Howard (sole proprietor)
-- **State of formation / residence.** Commonwealth of Virginia
+- **State of formation / residence.** Commonwealth of Virginia — rendered as
+  plain "Virginia" in all customer-facing prose (see the 2026-09-06 change-log
+  entry); the formal name survives only in the Terms §16 governing-law and
+  venue clauses.
+- **Legal-notice address.** `jared@jaredhoward.com`
 - **Governing law.** Virginia
 - **Venue.** Virginia state and federal courts
 - **Dispute resolution.** Informal-first (30-day good-faith window), then
@@ -217,7 +221,7 @@ When the custom domain is registered and pointed at the site (see
 
 - [x] **Move the published legal-notice address to a domain-controlled
   forwarder.** Done — every customer-facing address now reads
-  `contact@jaredhoward.com` (Migadu-hosted, catch-all lands in the
+  `jared@jaredhoward.com` (Migadu-hosted, catch-all lands in the
   mailbox; see `docs/email-setup.md`), replacing the old Gmail address.
   Updated across the Contact page, Capability Statement, Terms §16,
   Privacy §11, Refunds §6, and `SECURITY.md`. Reduces the risk that a
@@ -358,3 +362,30 @@ change:
   we ever sub-contract custom-development work, ensure the contractor
   is bound by an NDA / IP-assignment agreement so the §11.2 indemnity
   obligation doesn't outrun what the contractor is liable to us for.
+
+## Change log — copy pass, 2026-09-06
+
+A marketing-copy pass touched all four legal pages. **No legal commitment,
+obligation, timeframe, section number or cross-reference changed** — the edits
+were the entity descriptor and the notice address only.
+
+- **"Commonwealth of Virginia" → "Virginia"** in the who-we-are sentence of
+  Terms §1, Privacy §1, Refunds §1 and the Contact page opener. Rationale: the
+  formal style taxes a general reader for no gain in a sentence written for
+  them. **Deliberately not changed:** Terms §16 governing-law and venue clauses
+  still read "Commonwealth of Virginia" — that is the state's correct legal
+  name and standard drafting for a choice-of-law clause, and its reader is
+  counsel, not a prospect. The two spellings refer to the same jurisdiction and
+  neither is ambiguous. If counsel prefers one form throughout, §16 is the one
+  to change, not the prose.
+- **Notice address `contact@jaredhoward.com` → `jared@jaredhoward.com`.**
+  Same Migadu mailbox. Updated in Terms §16, Privacy §11, Refunds §6, the
+  Contact page, the Experience page's corporate-data rail, `/cv/`,
+  `SECURITY.md` and `src/lib/site.ts`. **Before this ships, confirm the
+  `jared@` mailbox or alias actually exists at Migadu** — a published
+  legal-notice address that bounces is worse than the old one.
+- The `/capabilities/` page is now titled **Experience** in the nav and its
+  `h1`. The route is unchanged, so no legal-page link needed updating.
+- Both "Start a project" buttons were removed from the landing page. `/contact/`
+  itself is untouched and still reachable from the masthead nav and the footer
+  on every page — the footer-link invariant re-verified below still holds.

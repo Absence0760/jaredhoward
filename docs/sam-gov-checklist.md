@@ -1,7 +1,9 @@
 # SAM.gov registration checklist
 
-The [Capability Statement](../src/routes/capabilities/+page.svelte) ships with placeholders
-marked `[ TO BE ASSIGNED ]` for the federal identifiers that only exist once the
+The capability statement — the page at `/capabilities/`, titled **Experience**
+in the nav and in its own `h1` for a general audience, but still the federal
+one-pager — [`src/routes/capabilities/+page.svelte`](../src/routes/capabilities/+page.svelte)
+ships with placeholders marked `[ TO BE ASSIGNED ]` for the federal identifiers that only exist once the
 business is registered in **SAM.gov**. This doc is the to-do list for obtaining
 them and the steps to replace the placeholders afterward.
 

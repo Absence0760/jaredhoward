@@ -32,7 +32,7 @@
 		<p>
 			This policy explains how to cancel a subscription, when refunds are available, and how billing
 			disputes are handled. It applies to all software-product subscriptions and custom-development
-			engagements with Jared Howard, a sole proprietor based in the Commonwealth of Virginia ("<strong
+			engagements with Jared Howard, a sole proprietor based in Virginia ("<strong
 				>we</strong
 			>", "<strong>our</strong>", "<strong>us</strong>"). It supplements, and should be read
 			together with, our Terms of Service at <code>/terms/</code>.
@@ -53,7 +53,7 @@
 			<li>
 				<strong>By email.</strong> Until in-product cancellation is available, you can cancel by
 				emailing us at
-				<a href="mailto:contact@jaredhoward.com">contact@jaredhoward.com</a> with the subject line
+				<a href="mailto:jared@jaredhoward.com">jared@jaredhoward.com</a> with the subject line
 				<strong>"Cancel subscription"</strong> and the email address on your account.
 				<strong>An email cancellation takes effect on the day we receive it.</strong> We will confirm
 				receipt and processing promptly; if you have not received confirmation within five business days,
@@ -154,7 +154,7 @@
 			are resolved within a day or two when we hear about them directly.
 		</p>
 		<p>
-			<strong><a href="mailto:contact@jaredhoward.com">contact@jaredhoward.com</a></strong> — subject
+			<strong><a href="mailto:jared@jaredhoward.com">jared@jaredhoward.com</a></strong> — subject
 			line <strong>"Billing dispute"</strong>.
 		</p>
 		<p>
@@ -174,7 +174,7 @@
 		<p>For cancellations, refund requests, billing errors, or disputes:</p>
 		<p>
 			<strong>Jared Howard</strong><br />
-			<a href="mailto:contact@jaredhoward.com">contact@jaredhoward.com</a>
+			<a href="mailto:jared@jaredhoward.com">jared@jaredhoward.com</a>
 		</p>
 		<p>
 			See our <a href="/terms/">Terms of Service</a> and <a href="/privacy/">Privacy Policy</a> for the
