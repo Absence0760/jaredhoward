@@ -51,9 +51,22 @@ export const site = {
 		{ href: '/contact/', label: 'Contact' }
 	] satisfies NavLink[],
 
-	// Public work. All of it renders on /work/; the three flagged `featured`
-	// also appear in the home page's "Selected work" trio.
+	// Public work (order matters). /work/ renders this array as-is, so the first
+	// entry leads that page; the three flagged `featured` also appear in the home
+	// page's "Selected work" trio, in this same order.
 	projects: [
+		{
+			name: 'Cross-platform fitness app',
+			repo: 'https://github.com/Absence0760/threkir',
+			url: 'https://threkir.com',
+			blurb:
+				'Running, gym, and nutrition app — Flutter on iOS and Android with native Apple Watch and Wear OS companions, a SvelteKit web app, and a Supabase backend.',
+			tech: ['Flutter', 'SwiftUI', 'SvelteKit', 'Supabase'],
+			kind: 'Mobile',
+			cardBlurb:
+				'Running, gym and nutrition app — Flutter on iOS and Android with native watch companions.',
+			thumb: 'mobile'
+		},
 		{
 			name: 'Flakey',
 			repo: 'https://github.com/Absence0760/project-flakey',
@@ -80,8 +93,8 @@ export const site = {
 			thumb: 'storefront'
 		},
 		{
-			name: 'Account Payables',
-			repo: 'https://github.com/Absence0760/project-account-payables',
+			name: 'FeohLedger',
+			repo: 'https://github.com/Absence0760/feohledger',
 			blurb:
 				'Full-stack accounts-payable app — multi-tenant invoice intake and approvals behind a Python API and a SvelteKit front end.',
 			tech: ['SvelteKit', 'FastAPI', 'Python', 'PostgreSQL'],
@@ -90,18 +103,6 @@ export const site = {
 				'Full-stack accounts-payable app — multi-tenant invoice intake and approvals behind a Python API.',
 			featured: true,
 			thumb: 'ledger'
-		},
-		{
-			name: 'Cross-platform fitness app',
-			repo: 'https://github.com/Absence0760/threkir',
-			url: 'https://threkir.com',
-			blurb:
-				'Running, gym, and nutrition app — Flutter on iOS and Android with native Apple Watch and Wear OS companions, a SvelteKit web app, and a Supabase backend.',
-			tech: ['Flutter', 'SwiftUI', 'SvelteKit', 'Supabase'],
-			kind: 'Mobile',
-			cardBlurb:
-				'Running, gym and nutrition app — Flutter on iOS and Android with native watch companions.',
-			thumb: 'mobile'
 		},
 		{
 			name: 'disag',
