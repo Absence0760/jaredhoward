@@ -381,9 +381,15 @@ were the entity descriptor and the notice address only.
 - **Notice address `contact@jaredhoward.com` → `jared@jaredhoward.com`.**
   Same Migadu mailbox. Updated in Terms §16, Privacy §11, Refunds §6, the
   Contact page, the Experience page's corporate-data rail, `/cv/`,
-  `SECURITY.md` and `src/lib/site.ts`. **Before this ships, confirm the
-  `jared@` mailbox or alias actually exists at Migadu** — a published
-  legal-notice address that bounces is worse than the old one.
+  `SECURITY.md` and `src/lib/site.ts`. **Pre-ship gate cleared 2026-09-18:**
+  the `jared@jaredhoward.com` mailbox was created at Migadu, and the mail
+  records it depends on are live in the Route 53 zone — apex MX
+  (`aspmx1`/`aspmx2.migadu.com`), the Migadu SPF and verify TXT, the three
+  DKIM CNAMEs (`key1`–`key3`) and `_dmarc` (`p=none`). So the published
+  legal-notice address resolves to a real mailbox rather than bouncing, and the
+  copy pass is clear to ship. Re-confirm the same way — mailbox exists, then
+  `dig MX`/`dig TXT` — on any future mail-provider or address change; a
+  published legal-notice address that bounces is worse than the old one.
 - The `/capabilities/` page is now titled **Experience** in the nav and its
   `h1`. The route is unchanged, so no legal-page link needed updating.
 - Both "Start a project" buttons were removed from the landing page. `/contact/`
