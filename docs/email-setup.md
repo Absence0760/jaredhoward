@@ -127,6 +127,14 @@ Done in the Migadu admin panel, not in Route 53:
   "infinite prefixes" behavior.
 - **Identities:** to *send as* an alias, add it as an identity.
 
+**Current state (2026-09-18):** `jared@jaredhoward.com` exists and is the
+address published across the site (Contact, Terms §16, Privacy §11, Refunds §6,
+the Experience page's corporate-data rail, `/cv/`) and in `SECURITY.md`.
+Whether it is the primary mailbox or an alias onto it is a Migadu-side detail —
+the site only needs it to deliver. It replaced `contact@jaredhoward.com` in the
+2026-09-06 copy pass; the pre-ship gate that tracked "does this address
+actually exist" is logged in [`legal-status.md`](./legal-status.md).
+
 ## Client connection settings
 
 ```
