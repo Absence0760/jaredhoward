@@ -63,8 +63,9 @@
 
 		<h2 id="where-data-is-kept">4. Where data is kept</h2>
 		<p>
-			The scheduler runs on my own server in Amazon Web Services (us-east-1). Access tokens are
-			stored encrypted at rest. I can disconnect any account at any time.
+			The scheduler runs only on a server I control, in Amazon Web Services (us-east-1), and no
+			account is connected to it before then. Access tokens are stored encrypted at rest. I can
+			disconnect any account at any time.
 		</p>
 
 		<h2 id="removing-access-and-deleting-data">5. Removing access and deleting data</h2>
