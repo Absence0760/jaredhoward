@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
+import { existsSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { site } from './site';
+
+const routesDir = resolve(dirname(fileURLToPath(import.meta.url)), '../routes');
 
 describe('site metadata', () => {
 	it('has an https apex URL with no trailing slash', () => {
@@ -32,6 +37,22 @@ describe('site metadata', () => {
 	it('every footer link target is a known route', () => {
 		for (const link of site.footer) {
 			expect(site.routes).toContain(link.href);
+		}
+	});
+
+	it('lists the Social Publisher policy pages in the sitemap, not in nav or footer', () => {
+		const social = ['/social/privacy/', '/social/data-deletion/'];
+		for (const route of social) {
+			expect(site.routes).toContain(route);
+			expect(site.nav.some((link) => link.href === route)).toBe(false);
+			expect(site.footer.some((link) => link.href === route)).toBe(false);
+		}
+	});
+
+	it('every listed route has a page under src/routes/', () => {
+		for (const route of site.routes) {
+			const page = resolve(routesDir, `.${route}`, '+page.svelte');
+			expect(existsSync(page), `${route} has no ${page}`).toBe(true);
 		}
 	});
 

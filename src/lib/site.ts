@@ -146,6 +146,10 @@ export const site = {
 		'/contact/',
 		'/terms/',
 		'/privacy/',
-		'/refunds/'
+		'/refunds/',
+		// Policy pages for the Social Publisher developer apps (Meta). In the
+		// sitemap, deliberately not in nav or footer: only the app listings link here.
+		'/social/privacy/',
+		'/social/data-deletion/'
 	]
 } as const;

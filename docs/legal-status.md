@@ -395,3 +395,50 @@ were the entity descriptor and the notice address only.
 - Both "Start a project" buttons were removed from the landing page. `/contact/`
   itself is untouched and still reachable from the masthead nav and the footer
   on every page — the footer-link invariant re-verified below still holds.
+
+## Change log — Social Publisher policy pages, 2026-11-03
+
+Two new public pages for the **"Jared Howard Social Publisher"** developer apps
+(Meta now — Facebook, Instagram, Threads — and LinkedIn later). The apps exist
+so the owner's self-hosted Postiz scheduler can publish to social accounts he
+owns for his own projects; nobody else uses them. Meta requires a privacy-policy
+URL and a data-deletion-instructions URL on the app listing:
+
+- **`/social/privacy/`** — "Social Publisher: privacy policy". What the app
+  accesses (platform access tokens for the owner's own connected Pages/accounts;
+  name, ID and picture of those accounts; the posts and media he schedules),
+  what it does not do (no data about other people, no selling or sharing, no
+  ads, no analytics), where it is kept (the owner's own server in AWS
+  us-east-1, tokens encrypted at rest), and a pointer to the deletion page.
+- **`/social/data-deletion/`** — "Social Publisher: data deletion
+  instructions". Remove the app via Settings & privacy > Apps and websites /
+  Business integrations; the owner deletes the connection and tokens from the
+  scheduler; Meta's deletion callback (`https://social.jaredhoward.com/meta/data-deletion`,
+  not named on the page) is acknowledged and holds no user data; email
+  requests answered **within 30 days**. **The URL to give Meta is this page.**
+
+Both are dated 2026-11-03, use the site-wide legal-notice address
+(`jared@jaredhoward.com`, via `site.email`), and are in the sitemap
+(`site.routes`) but **not** in the masthead nav or footer — only the app
+listings and the main Privacy Policy link to them. `src/lib/site.test.ts`
+asserts that placement and that every `site.routes` entry has a page;
+`e2e/integrity.spec.ts` now covers both routes (one h1, legal footer, no
+320px overflow, no third-party requests, visible without JS).
+
+**Main Privacy Policy:** one sentence added before §1 pointing to
+`/social/privacy/`. No commitment, timeframe or section number changed, so
+the renumbering rule is not triggered and the Effective date is unchanged.
+
+Commitments these pages make that must stay true:
+
+- [ ] **Hosting and encryption.** "Runs on my own server in AWS us-east-1;
+  tokens encrypted at rest" describes the planned Postiz deployment (social
+  repo, `docs/postiz.md`). If it is hosted elsewhere or tokens are not
+  encrypted at rest, edit §4 of `/social/privacy/` before connecting any
+  account.
+- [ ] **No data about other people.** If the scheduler ever reads comments,
+  messages or insights about other users, `/social/privacy/` §2–3 must change
+  first.
+- [ ] **30-day deletion response** on `/social/data-deletion/` §3.
+- [ ] **New platforms.** Adding LinkedIn (or another) to the app set needs a
+  line on both pages naming it and its removal path.

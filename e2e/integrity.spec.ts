@@ -14,7 +14,9 @@ const ROUTES = [
 	'/contact/',
 	'/terms/',
 	'/privacy/',
-	'/refunds/'
+	'/refunds/',
+	'/social/privacy/',
+	'/social/data-deletion/'
 ];
 
 const LEGAL = ['/contact/', '/terms/', '/privacy/', '/refunds/'];
