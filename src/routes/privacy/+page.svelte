@@ -45,6 +45,11 @@
 
 		<p>If you do not agree with this policy, please do not use the services.</p>
 
+		<p>
+			The Social Publisher app, which only publishes posts to our own social accounts, has its own
+			short policy at <a href="/social/privacy/">/social/privacy/</a>.
+		</p>
+
 		<h2 id="about-this-policy">1. About this policy</h2>
 		<p>
 			We are a US-based sole proprietorship. Our customers are primarily US consumers and US small
