@@ -299,6 +299,9 @@ main.page {
   text-decoration-color: color-mix(in srgb, var(--l-accent-text) 35%, transparent);
   text-underline-offset: 3px;
   transition: text-decoration-color 240ms var(--ease-out-quart);
+  /* A bare URL as link text (myaccount.google.com/permissions) is one
+     unbreakable word wider than a 320px column; let it wrap anywhere. */
+  overflow-wrap: anywhere;
 }
 .post-content a:hover { text-decoration-color: var(--l-accent-text); transition-duration: 120ms; }
 

@@ -74,7 +74,9 @@ error page):
 
 - **`.prose` / `.prose-header` / `.post-content`** — sans-serif long-form at a
   68ch measure. The header's rule is the same fading hairline the landing
-  page's band labels sit on.
+  page's band labels sit on. Links inside `.post-content` carry
+  `overflow-wrap: anywhere`, so a bare URL used as link text wraps instead of
+  pushing the page wider than a 320px viewport.
 - **`.capability-data`** — a label/value data sheet on the same card surface as
   `.stream-card`.
 - **`.cv`** — résumé layout reusing the mono section-heading pattern, opening
