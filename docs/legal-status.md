@@ -434,7 +434,7 @@ Commitments these pages make that must stay true:
 - [ ] **Hosting and encryption.** "Runs on my own server in AWS us-east-1;
   tokens encrypted at rest" describes the planned Postiz deployment (social
   repo, `docs/postiz.md`). If it is hosted elsewhere or tokens are not
-  encrypted at rest, edit §4 of `/social/privacy/` before connecting any
+  encrypted at rest, edit §5 of `/social/privacy/` before connecting any
   account.
 - [ ] **No data about other people.** If the scheduler ever reads comments,
   messages or insights about other users, `/social/privacy/` §2–3 must change
@@ -464,7 +464,9 @@ its dates are unchanged.
 
 Open items this page creates:
 
-- [ ] **Platforms named here but not on the other two pages.** `/social/terms/`
+- [x] **Platforms named here but not on the other two pages.** Closed
+  2026-11-06 (change log below).
+  Was: `/social/terms/`
   §2 lists YouTube, TikTok, X and Bluesky as well as Meta and LinkedIn;
   `/social/privacy/` and `/social/data-deletion/` still name only Meta (and
   LinkedIn later). Per the "New platforms" item above, add each platform and
@@ -472,3 +474,43 @@ Open items this page creates:
   verification also checks that the privacy policy covers YouTube data.
 - [ ] **Third-party URLs.** The YouTube, Google and TikTok links are external;
   re-check they still resolve at each review.
+
+## Change log — Social Publisher privacy and deletion pages cover every platform, 2026-11-06
+
+`/social/privacy/` and `/social/data-deletion/` now name every platform
+`/social/terms/` §2 lists: YouTube, TikTok, Facebook, Instagram, Threads, X,
+Bluesky and LinkedIn (no more "Meta, and LinkedIn later"). **Material change:
+both pages' Effective and Last reviewed dates moved to 2026-11-06.**
+
+- **`/social/privacy/`** — intro lists all eight platforms. §2 now says the
+  stored credential for Bluesky is an app password (Postiz connects Bluesky with
+  handle + app password, not OAuth; social repo `docs/postiz.md`). **New §4
+  "YouTube and TikTok"**: states the app uses the YouTube API Services; what
+  YouTube data it reads (channel name, ID, picture), what it does (uploads the
+  owner's videos with title, description, thumbnail), what it stores (OAuth
+  tokens, basic channel info, post content), that nothing is shared except
+  sending posts to YouTube; links the YouTube Terms of Service, the Google
+  Privacy Policy and `https://myaccount.google.com/permissions` for revocation,
+  as Google's API Services policy requires. TikTok: basic profile info
+  (display name, ID, avatar) and posting only; revoke in the TikTok app under
+  Settings and privacy > Security > Manage app permissions. **Renumbered:** old
+  §4 Where data is kept → §5, §5 Removing access → §6, §6 Contact → §7.
+  Cross-references re-verified: nothing on the site links to these sections by
+  number; the hosting item above now points at §5. The "no analytics" and "no
+  data about other people" statements are unchanged.
+- **`/social/data-deletion/`** — §1 is now a per-platform list of removal
+  paths: Google account permissions (YouTube), TikTok Manage app permissions,
+  Meta Apps and websites / Business integrations (unchanged), X Connected apps,
+  Bluesky App passwords (delete the app password), LinkedIn Permitted services.
+  §2 also deletes the basic account details stored with a connection. The
+  30-day email response (§3) and section numbers are unchanged.
+
+Open items:
+
+- [ ] **Settings paths drift.** The X, LinkedIn, Bluesky and TikTok menu paths
+  on `/social/data-deletion/` §1 are the platforms' current labels; re-check
+  them at each review, and when connecting each account.
+- [ ] **YouTube data described in §4.** If the scheduler ever reads more from
+  YouTube than channel name/ID/picture (e.g. analytics, comments), §3–4 of
+  `/social/privacy/` must change before it does, and Google's verification
+  will re-check it.
