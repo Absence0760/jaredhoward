@@ -442,3 +442,33 @@ Commitments these pages make that must stay true:
 - [ ] **30-day deletion response** on `/social/data-deletion/` §3.
 - [ ] **New platforms.** Adding LinkedIn (or another) to the app set needs a
   line on both pages naming it and its removal path.
+
+## Change log — Social Publisher terms of service, 2026-11-06
+
+One new page, **`/social/terms/`** — "Social Publisher: terms of service",
+dated 2026-11-06. TikTok's developer-app form requires a Terms of Service URL
+and Google's OAuth consent screen accepts one; **the URL to give both is this
+page.** It reuses the privacy page's §1 wording (private, single-operator tool,
+not offered to the public) and says: the app publishes posts and media the
+owner makes to accounts he controls, through each platform's official API;
+using it means following each platform's terms, linking the YouTube Terms of
+Service (`https://www.youtube.com/t/terms`) and the Google Privacy Policy
+(`https://policies.google.com/privacy`), as Google's API Services policy
+requires of YouTube API clients, and TikTok's Terms of Service; no warranty;
+revoking access, pointing to `/social/data-deletion/`; contact via `site.email`.
+
+Same placement as the other two: in `site.routes` (sitemap), not in the nav or
+footer; `src/lib/site.test.ts` and `e2e/integrity.spec.ts` now include it.
+`/social/privacy/` gains one sentence linking to it; no commitment changed, so
+its dates are unchanged.
+
+Open items this page creates:
+
+- [ ] **Platforms named here but not on the other two pages.** `/social/terms/`
+  §2 lists YouTube, TikTok, X and Bluesky as well as Meta and LinkedIn;
+  `/social/privacy/` and `/social/data-deletion/` still name only Meta (and
+  LinkedIn later). Per the "New platforms" item above, add each platform and
+  its removal path to both before connecting an account on it. Google's
+  verification also checks that the privacy policy covers YouTube data.
+- [ ] **Third-party URLs.** The YouTube, Google and TikTok links are external;
+  re-check they still resolve at each review.

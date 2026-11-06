@@ -3,7 +3,7 @@
 	import { site } from '$lib/site';
 
 	// Policy for the "Jared Howard Social Publisher" developer apps (Meta, and
-	// LinkedIn later). Linked from the app listings and from Privacy §1, not
+	// LinkedIn later). Linked from the app listings, from Privacy §1 and from /social/terms/, not
 	// from the nav. Changes go through docs/legal-status.md like the other
 	// legal pages.
 	const sections = [
@@ -36,7 +36,8 @@
 			This policy covers <strong>Jared Howard Social Publisher</strong>, the developer app I use on
 			Meta (Facebook, Instagram and Threads), and later LinkedIn, to publish my own posts. It does
 			not replace the site-wide <a href="/privacy/">Privacy Policy</a>, which covers this website and
-			my paid services.
+			my paid services. The <a href="/social/terms/">Social Publisher terms of service</a> cover
+			using the app.
 		</p>
 
 		<h2 id="what-it-is">1. What it is</h2>
