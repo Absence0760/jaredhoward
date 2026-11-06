@@ -31,9 +31,11 @@ resource "aws_route53_record" "mx" {
   ]
 }
 
-# Apex TXT: SPF, Migadu domain-ownership verification, and TikTok for
+# Apex TXT: SPF, Migadu domain-ownership verification, TikTok for
 # Developers domain verification (social publisher app, 2026-11-06; covers
-# jaredhoward.com and subdomains such as social.jaredhoward.com).
+# jaredhoward.com and subdomains such as social.jaredhoward.com), and Google
+# Search Console domain verification (2026-11-06; Google's OAuth branding
+# review needs the consent screen's authorised domain verified there).
 resource "aws_route53_record" "apex_txt" {
   zone_id = aws_route53_zone.apex.zone_id
   name    = var.apex_domain
@@ -43,6 +45,7 @@ resource "aws_route53_record" "apex_txt" {
     "v=spf1 include:spf.migadu.com -all",
     "hosted-email-verify=xckbrxib",
     "tiktok-developers-site-verification=3AXHoP8pkSYeas1jTdxjSFP8uuIOgKHM",
+    "google-site-verification=GjLhO1Sp6xjpQ5G09U5pyy087Jk7f2CK67PccVCA8iY",
   ]
 }
 
