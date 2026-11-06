@@ -15,6 +15,7 @@ const ROUTES = [
 	'/terms/',
 	'/privacy/',
 	'/refunds/',
+	'/social/',
 	'/social/privacy/',
 	'/social/data-deletion/',
 	'/social/terms/'

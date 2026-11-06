@@ -148,9 +148,10 @@ export const site = {
 		'/terms/',
 		'/privacy/',
 		'/refunds/',
-		// Policy pages for the Social Publisher developer apps (Meta, TikTok,
+		// Home and policy pages for the Social Publisher developer apps (Meta, TikTok,
 		// Google). In the sitemap, deliberately not in nav or footer: only the
 		// app listings link here.
+		'/social/',
 		'/social/privacy/',
 		'/social/data-deletion/',
 		'/social/terms/'

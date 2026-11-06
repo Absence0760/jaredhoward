@@ -40,8 +40,8 @@ describe('site metadata', () => {
 		}
 	});
 
-	it('lists the Social Publisher policy pages in the sitemap, not in nav or footer', () => {
-		const social = ['/social/privacy/', '/social/data-deletion/', '/social/terms/'];
+	it('lists the Social Publisher home and policy pages in the sitemap, not in nav or footer', () => {
+		const social = ['/social/', '/social/privacy/', '/social/data-deletion/', '/social/terms/'];
 		for (const route of social) {
 			expect(site.routes).toContain(route);
 			expect(site.nav.some((link) => link.href === route)).toBe(false);
