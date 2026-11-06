@@ -71,6 +71,12 @@ another sender is ever added, merge its `include:` into this one SPF value
 (don't create a second SPF TXT). In Route 53 this is one record-set with both
 strings as separate values (see the `change-batch` example below).
 
+> **The live apex set has a third value.** Since 2026-11-06 it also carries
+> `tiktok-developers-site-verification=…` for the Social Publisher app (see
+> `infra/dns/records.tf`). It shares the RRset for the same one-set-per-name
+> reason, so when editing the email values keep it in the set: Terraform
+> replaces the whole RRset, and dropping it un-verifies the TikTok app.
+
 ### 2. MX — where mail for the domain is delivered
 
 ```
