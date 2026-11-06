@@ -542,3 +542,23 @@ Open items:
 - [ ] **Settings paths drift.** The X, LinkedIn, Bluesky and TikTok menu paths
   on `/social/data-deletion/` §1 are the platforms' current labels; re-check
   them at each review, and when connecting each account.
+
+## Change log — Social Publisher home page, 2026-11-06
+
+One new page, **`/social/`** — "Jared Howard Social Publisher". Google's
+OAuth branding review (needed before the app's YouTube scopes can be
+verified) requires an **Application home page** that names the app, describes
+what it does and links its privacy policy; `https://jaredhoward.com/` does
+neither, so the consent screen's home page moves to this page. It restates the
+privacy page's §1 facts (private, self-hosted Postiz, single operator, not
+offered to the public), lists the platforms and what the app does on them
+(publish, schedule, read the account's own statistics; on YouTube: upload, set
+title/description/privacy/thumbnail, read analytics), links all three policy
+pages, and gives `site.email` as contact. It makes no new data commitment.
+
+Same placement as the other `/social/` pages: in `site.routes` (sitemap), not
+in the nav or footer; `src/lib/site.test.ts` and `e2e/integrity.spec.ts` now
+include it.
+
+- [ ] After release: set Google Auth Platform → Branding → **Application home
+  page** to `https://jaredhoward.com/social/`.
