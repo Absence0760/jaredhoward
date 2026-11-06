@@ -434,7 +434,7 @@ Commitments these pages make that must stay true:
 - [ ] **Hosting and encryption.** "Runs on my own server in AWS us-east-1;
   tokens encrypted at rest" describes the planned Postiz deployment (social
   repo, `docs/postiz.md`). If it is hosted elsewhere or tokens are not
-  encrypted at rest, edit §4 of `/social/privacy/` before connecting any
+  encrypted at rest, edit §5 of `/social/privacy/` before connecting any
   account.
 - [ ] **No data about other people.** If the scheduler ever reads comments,
   messages or insights about other users, `/social/privacy/` §2–3 must change
@@ -442,3 +442,103 @@ Commitments these pages make that must stay true:
 - [ ] **30-day deletion response** on `/social/data-deletion/` §3.
 - [ ] **New platforms.** Adding LinkedIn (or another) to the app set needs a
   line on both pages naming it and its removal path.
+
+## Change log — Social Publisher terms of service, 2026-11-06
+
+One new page, **`/social/terms/`** — "Social Publisher: terms of service",
+dated 2026-11-06. TikTok's developer-app form requires a Terms of Service URL
+and Google's OAuth consent screen accepts one; **the URL to give both is this
+page.** It reuses the privacy page's §1 wording (private, single-operator tool,
+not offered to the public) and says: the app publishes posts and media the
+owner makes to accounts he controls, through each platform's official API;
+using it means following each platform's terms, linking the YouTube Terms of
+Service (`https://www.youtube.com/t/terms`) and the Google Privacy Policy
+(`https://policies.google.com/privacy`), as Google's API Services policy
+requires of YouTube API clients, and TikTok's Terms of Service; no warranty;
+revoking access, pointing to `/social/data-deletion/`; contact via `site.email`.
+
+Same placement as the other two: in `site.routes` (sitemap), not in the nav or
+footer; `src/lib/site.test.ts` and `e2e/integrity.spec.ts` now include it.
+`/social/privacy/` gains one sentence linking to it; no commitment changed, so
+its dates are unchanged.
+
+Open items this page creates:
+
+- [x] **Platforms named here but not on the other two pages.** Closed
+  2026-11-06 (change log below).
+  Was: `/social/terms/`
+  §2 lists YouTube, TikTok, X and Bluesky as well as Meta and LinkedIn;
+  `/social/privacy/` and `/social/data-deletion/` still name only Meta (and
+  LinkedIn later). Per the "New platforms" item above, add each platform and
+  its removal path to both before connecting an account on it. Google's
+  verification also checks that the privacy policy covers YouTube data.
+- [ ] **Third-party URLs.** The YouTube, Google and TikTok links are external;
+  re-check they still resolve at each review.
+
+## Change log — Social Publisher privacy and deletion pages cover every platform, 2026-11-06
+
+`/social/privacy/` and `/social/data-deletion/` now name every platform
+`/social/terms/` §2 lists: YouTube, TikTok, Facebook, Instagram, Threads, X,
+Bluesky and LinkedIn (no more "Meta, and LinkedIn later"). **Material change:
+both pages' Effective and Last reviewed dates moved to 2026-11-06.**
+
+Source of truth for what the app accesses: the OAuth scopes Postiz **v2.25.3**
+(the pinned version) requests. It reads analytics, so the pages now say so.
+
+- YouTube: `userinfo.profile`, `userinfo.email`, `youtube`, `youtube.force-ssl`,
+  `youtube.readonly`, `youtube.upload`, `youtubepartner`,
+  `yt-analytics.readonly` → Google account name/email, channel info, uploads,
+  channel and video analytics.
+- TikTok: `user.info.basic`, `user.info.profile`, `user.info.stats`,
+  `video.list`, `video.upload`, `video.publish` → profile, follower/like stats,
+  the account's video list and metrics, posting.
+
+Changes:
+
+- **`/social/privacy/`** — intro lists all eight platforms. §2 adds the Bluesky
+  app password (Postiz connects Bluesky with handle + app password, not OAuth;
+  social repo `docs/postiz.md`) and a new bullet: statistics for the owner's own
+  accounts and posts, where the platform provides them, to show performance.
+  **§3 wording changed:** "runs no analytics" → "adds no tracking or
+  third-party analytics"; the statistics it reads are aggregate counts for the
+  owner's own accounts and posts; nothing is sold or shared with anyone other than the platform it came
+  from. **New §4 "YouTube and TikTok"**: states the app uses the YouTube API
+  Services; what YouTube data it accesses (per the scopes above), how it uses it
+  (connect, upload/update videos, show performance), what it stores (OAuth
+  tokens, basic account/channel info, post content, statistics read), that it is
+  not sold or shared beyond YouTube; links the YouTube Terms of Service, the
+  Google Privacy Policy and `https://myaccount.google.com/permissions`, as
+  Google's API Services policy requires. TikTok: profile, account stats, video
+  list and metrics, posting; revoke in the TikTok app under Settings and privacy
+  > Security > Manage app permissions. **Renumbered:** old §4 Where data is kept
+  → §5, §5 Removing access → §6, §6 Contact → §7. Cross-references re-verified:
+  nothing on the site links to these sections by number; the hosting item above
+  now points at §5.
+- **`/social/data-deletion/`** — §1 is now a per-platform list of removal
+  paths: Google account permissions (YouTube), TikTok Manage app permissions,
+  Meta Apps and websites / Business integrations (unchanged), X Connected apps,
+  Bluesky App passwords (delete the app password), LinkedIn Permitted services.
+  §2 also deletes the basic account details stored with a connection. The
+  30-day email response (§3) and section numbers are unchanged.
+
+Verified in the v2.25.3 source (`youtube.provider.ts`, `tiktok.provider.ts`):
+the analytics calls return aggregate counts only (views, likes, comment and
+share counts, followers); neither provider fetches comment text or commenter
+data, so "no data about other people" still holds for these two.
+
+Open items:
+
+- [x] **Analytics described accurately.** Closed 2026-11-06: an interim draft
+  of this change kept "runs no analytics", which was wrong for v2.25.3; §2–4
+  now describe the aggregate statistics read for the owner's own accounts.
+- [ ] **Scopes on a Postiz upgrade.** Re-read the requested scopes for every
+  provider whenever the Postiz pin moves past v2.25.3; if any scope reaches
+  data about other people (comments, messages, audience demographics beyond
+  totals), `/social/privacy/` §2–4 must change first, and Google's
+  verification will re-check the YouTube description.
+- [ ] **Statistics on the other platforms.** §2 says "where the platform
+  provides them" without naming scopes for Meta, X, LinkedIn or Bluesky;
+  confirm those against v2.25.3 when connecting each.
+- [ ] **Settings paths drift.** The X, LinkedIn, Bluesky and TikTok menu paths
+  on `/social/data-deletion/` §1 are the platforms' current labels; re-check
+  them at each review, and when connecting each account.

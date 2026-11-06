@@ -2,17 +2,18 @@
 	import SectionRail from '$lib/components/SectionRail.svelte';
 	import { site } from '$lib/site';
 
-	// Policy for the "Jared Howard Social Publisher" developer apps (Meta, and
-	// LinkedIn later). Linked from the app listings and from Privacy §1, not
-	// from the nav. Changes go through docs/legal-status.md like the other
-	// legal pages.
+	// Policy for the "Jared Howard Social Publisher" developer apps (YouTube,
+	// TikTok, Meta, X, Bluesky, LinkedIn). Linked from the app listings, from
+	// Privacy §1 and from /social/terms/, not from the nav. Changes go through
+	// docs/legal-status.md like the other legal pages.
 	const sections = [
 		{ id: 'what-it-is', label: '1. What it is' },
 		{ id: 'what-it-accesses', label: '2. What it accesses' },
 		{ id: 'what-it-does-not-do', label: '3. What it does not do' },
-		{ id: 'where-data-is-kept', label: '4. Where data is kept' },
-		{ id: 'removing-access-and-deleting-data', label: '5. Removing access and deleting data' },
-		{ id: 'contact', label: '6. Contact' }
+		{ id: 'youtube-and-tiktok', label: '4. YouTube and TikTok' },
+		{ id: 'where-data-is-kept', label: '5. Where data is kept' },
+		{ id: 'removing-access-and-deleting-data', label: '6. Removing access and deleting data' },
+		{ id: 'contact', label: '7. Contact' }
 	];
 </script>
 
@@ -30,13 +31,15 @@
 	</header>
 
 	<div class="post-content">
-		<p><em>Effective: November 3, 2026. Last reviewed: November 3, 2026.</em></p>
+		<p><em>Effective: November 6, 2026. Last reviewed: November 6, 2026.</em></p>
 
 		<p>
-			This policy covers <strong>Jared Howard Social Publisher</strong>, the developer app I use on
-			Meta (Facebook, Instagram and Threads), and later LinkedIn, to publish my own posts. It does
+			This policy covers <strong>Jared Howard Social Publisher</strong>, the developer app I use to
+			publish my own posts to YouTube, TikTok, Facebook, Instagram, Threads, X, Bluesky and
+			LinkedIn. It does
 			not replace the site-wide <a href="/privacy/">Privacy Policy</a>, which covers this website and
-			my paid services.
+			my paid services. The <a href="/social/terms/">Social Publisher terms of service</a> cover
+			using the app.
 		</p>
 
 		<h2 id="what-it-is">1. What it is</h2>
@@ -49,33 +52,64 @@
 		<h2 id="what-it-accesses">2. What it accesses</h2>
 		<ul>
 			<li>
-				The access tokens a platform grants when I connect one of my own Pages or accounts.
+				The access tokens a platform grants when I connect one of my own Pages, channels or
+				accounts (for Bluesky, an app password I create for it).
 			</li>
 			<li>Basic profile or page details of those accounts: name, ID and picture.</li>
-			<li>The posts and media I schedule.</li>
+			<li>The posts and media I write and schedule, which it sends to the platform to publish.</li>
+			<li>
+				Aggregate statistics for my own accounts and posts, such as follower, view and like
+				counts, where the platform provides them, so I can see how my posts perform.
+			</li>
 		</ul>
 
 		<h2 id="what-it-does-not-do">3. What it does not do</h2>
 		<p>
-			It does not collect data about other people. It does not sell or share data with anyone. It
-			shows no ads and runs no analytics.
+			It does not collect data about other people; the statistics it reads are aggregate counts for
+			my own accounts and posts. It does not sell data or share it with anyone other than the platform it
+			came from. It shows no ads and adds no tracking or third-party analytics.
 		</p>
 
-		<h2 id="where-data-is-kept">4. Where data is kept</h2>
+		<h2 id="youtube-and-tiktok">4. YouTube and TikTok</h2>
+		<p>
+			The app uses the <strong>YouTube API Services</strong>. With my permission it accesses my
+			Google account's name and email address, my channel's details and videos, and aggregate
+			statistics for my channel and videos (YouTube Analytics), such as views and likes. It uses them to connect the channel, to upload and update
+			the videos I make (titles, descriptions and thumbnails), and to show me how they perform. It
+			stores the OAuth tokens and the basic account and channel information needed to publish, the
+			post content I write, and the statistics it reads. It does not sell any of this or share it
+			with anyone other than YouTube. By using it with YouTube you agree to the
+			<a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and Google's handling
+			of data is described in the
+			<a href="https://policies.google.com/privacy">Google Privacy Policy</a>. You can revoke its
+			access at any time at
+			<a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
+		</p>
+		<p>
+			From TikTok it accesses my profile information (display name, ID, avatar and profile
+			details), aggregate account statistics (such as follower and like counts), the list of my
+			videos and their view, like, comment and share counts, and permission to post the videos I make to my own account. It uses them to
+			publish and to show me how my posts perform, and shares them with no one other than TikTok.
+			You can revoke its access in the
+			TikTok app under <strong>Settings and privacy &gt; Security &gt; Manage app
+			permissions</strong>.
+		</p>
+
+		<h2 id="where-data-is-kept">5. Where data is kept</h2>
 		<p>
 			The scheduler runs only on a server I control, in Amazon Web Services (us-east-1), and no
 			account is connected to it before then. Access tokens are stored encrypted at rest. I can
 			disconnect any account at any time.
 		</p>
 
-		<h2 id="removing-access-and-deleting-data">5. Removing access and deleting data</h2>
+		<h2 id="removing-access-and-deleting-data">6. Removing access and deleting data</h2>
 		<p>
-			You can revoke the app's access from your Facebook, Instagram or Threads settings, and ask me
-			to delete anything it holds. The steps are on the
+			You can revoke the app's access from each platform's own settings, and ask me to delete
+			anything it holds. The steps are on the
 			<a href="/social/data-deletion/">data deletion instructions</a> page.
 		</p>
 
-		<h2 id="contact">6. Contact</h2>
+		<h2 id="contact">7. Contact</h2>
 		<p>
 			<strong>Jared Howard</strong><br />
 			<a href="mailto:{site.email}">{site.email}</a>
