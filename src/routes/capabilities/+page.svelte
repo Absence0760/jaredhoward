@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SectionRail from '$lib/components/SectionRail.svelte';
+	import SectionRail from '#lib/components/SectionRail.svelte';
 
 	// Corporate data is the first thing a SAM.gov buyer scans for, so it sits in
 	// the rail rather than at the bottom of a long page. Below 1080px the rail

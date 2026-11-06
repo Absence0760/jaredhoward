@@ -22,7 +22,8 @@ updates:
     commit-message:
       prefix: "chore(deps)"
       include: "scope"
-    # TypeScript is held on 5.x. svelte-check 4.x refuses TS 7 outright
+    # TypeScript majors are held (currently 6.x — SvelteKit 3 needs ^6).
+    # svelte-check 4.x refuses TS 7 outright
     # ("TypeScript 7 support currently requires both TypeScript 7 and
     # TypeScript 6 installed in your project, and requires using the --tsgo
     # flag"), so a grouped major sweep takes `pnpm check` — and with it the

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SectionRail from '$lib/components/SectionRail.svelte';
-	import { site } from '$lib/site';
+	import SectionRail from '#lib/components/SectionRail.svelte';
+	import { site } from '#lib/site.ts';
 
 	// The "Data deletion instructions URL" for the Social Publisher developer
 	// apps (Meta asks for one by name). Linked from /social/privacy/ and

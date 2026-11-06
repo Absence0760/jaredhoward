@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { afterNavigate } from '$app/navigation';
-	import { site } from '$lib/site';
+	import { site } from '#lib/site.ts';
 	import Monogram from './Monogram.svelte';
 	import Icon from './Icon.svelte';
 
@@ -19,7 +19,7 @@
 	let panel = $state<HTMLElement | null>(null);
 	let trigger = $state<HTMLButtonElement | null>(null);
 
-	const current = $derived($page.url.pathname);
+	const current = $derived(page.url.pathname);
 	// `null` for a route that isn't in the rail at all — the legal pages and the
 	// 404. Clamping those to 0 would slide the dot onto "Home", and since
 	// `.has-dot` retires the CSS fallback marker the dot is the *only* thing on

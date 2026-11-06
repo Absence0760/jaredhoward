@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SectionRail from '$lib/components/SectionRail.svelte';
-	import { site } from '$lib/site';
+	import SectionRail from '#lib/components/SectionRail.svelte';
+	import { site } from '#lib/site.ts';
 
 	// Terms of Service URL for the "Jared Howard Social Publisher" developer
 	// apps (TikTok requires one; Google's OAuth consent screen accepts one).

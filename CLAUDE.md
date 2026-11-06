@@ -12,7 +12,7 @@ The site also serves as the public business URL for Stripe sign-up. That means t
 
 ## Stack at a glance
 
-- **Framework:** SvelteKit 2 + Svelte 5 (runes), `@sveltejs/adapter-static` with full prerender + `trailingSlash: 'always'`. TypeScript. Versions pinned in `package.json`.
+- **Framework:** SvelteKit 3 + Svelte 5 (runes), `@sveltejs/adapter-static` with full prerender + `trailingSlash: 'always'`. TypeScript 6. Versions pinned in `package.json`. Kit config lives in `vite.config.ts` (`sveltekit({...})`; there is no `svelte.config.js`), and `src/lib/` is imported as `#lib/<file>.<ext>` via package.json `imports` — extension required, `$lib` no longer exists.
 - **Routes/components:** `src/routes/**/+page.svelte` (one per page) + `src/lib/` (`SiteHeader`/`LandingFooter`/`Monogram`/`Icon` for the site-wide shell; `HeroRibbon`/`WorkRow`/`WorkThumb` plus the `reveal` and `spotlight` actions for the landing page; `site.ts` metadata). No Markdown/CMS — pages are hand-authored Svelte.
 - **Styling:** a single global stylesheet `src/app.css`, imported once in the layout. One token layer (`--l-*` palette, `--s-*`/`--fs-*`/`--r-*`/`--ease-*` scales) under the `DESIGN TOKENS + LANDING PAGE` banner drives the whole site in both schemes; the reading-column rules at the top of the file consume it. A contrast table sits above the tokens and is computed from the hex beside it — recompute it when you change a colour.
 - **Build tooling:** Vite; Vitest for unit tests; `svelte-check` for types. pnpm workspace of one.

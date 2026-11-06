@@ -1,7 +1,7 @@
-import { site } from '$lib/site';
+import { site } from '#lib/site.ts';
 
-// Prerendered to build/sitemap.xml. It's unlinked, so svelte.config.js names
-// it explicitly in kit.prerender.entries. Generated from site.routes so it
+// Prerendered to build/sitemap.xml. It's unlinked, so vite.config.ts names
+// it explicitly in the sveltekit() plugin's prerender.entries. Generated from site.routes so it
 // can't drift from the actual route set.
 export const prerender = true;
 

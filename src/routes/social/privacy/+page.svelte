@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SectionRail from '$lib/components/SectionRail.svelte';
-	import { site } from '$lib/site';
+	import SectionRail from '#lib/components/SectionRail.svelte';
+	import { site } from '#lib/site.ts';
 
 	// Policy for the "Jared Howard Social Publisher" developer apps (YouTube,
 	// TikTok, Meta, X, Bluesky, LinkedIn). Linked from the app listings, from

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { site } from '$lib/site';
-	import { reveal } from '$lib/reveal';
-	import { spotlight } from '$lib/spotlight';
-	import HeroRibbon from '$lib/components/HeroRibbon.svelte';
-	import WorkRow from '$lib/components/WorkRow.svelte';
-	import Icon from '$lib/components/Icon.svelte';
+	import { site } from '#lib/site.ts';
+	import { reveal } from '#lib/reveal.ts';
+	import { spotlight } from '#lib/spotlight.ts';
+	import HeroRibbon from '#lib/components/HeroRibbon.svelte';
+	import WorkRow from '#lib/components/WorkRow.svelte';
+	import Icon from '#lib/components/Icon.svelte';
 
 	const featured = site.projects.filter((project) => project.featured);
 </script>

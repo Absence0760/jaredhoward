@@ -2,6 +2,9 @@
   "name": "jaredhoward",
   "private": true,
   "type": "module",
+  "imports": {
+    "#lib/*": "./src/lib/*"
+  },
   "description": "Personal website at jaredhoward.com — SvelteKit static site deployed to GitHub Pages.",
   "scripts": {
     "//-- dev --": "SvelteKit dev server (http://localhost:7777) and a static preview (http://localhost:8888) of the built site.",
@@ -20,17 +23,17 @@
     "test:scripts": "node scripts/check_root_scripts.mjs"
   },
   "devDependencies": {
-    "@playwright/test": "1.63.0",
-    "@sveltejs/adapter-static": "3.0.10",
-    "@sveltejs/kit": "2.70.3",
-    "@sveltejs/vite-plugin-svelte": "7.3.0",
-    "@types/node": "26.5.1",
-    "playwright": "1.63.0",
-    "svelte": "5.57.0",
-    "svelte-check": "4.7.6",
-    "typescript": "5.9.3",
-    "vite": "8.3.3",
-    "vitest": "5.0.0"
+    "@playwright/test": "1.64.1",
+    "@sveltejs/adapter-static": "4.0.1",
+    "@sveltejs/kit": "3.1.1",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "@types/node": "26.6.6",
+    "playwright": "1.64.1",
+    "svelte": "5.57.3",
+    "svelte-check": "4.7.8",
+    "typescript": "6.0.3",
+    "vite": "8.3.5",
+    "vitest": "5.1.0"
   },
   "pnpm": {
     "overrides": {
