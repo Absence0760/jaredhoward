@@ -57,21 +57,28 @@
 			</li>
 			<li>Basic profile or page details of those accounts: name, ID and picture.</li>
 			<li>The posts and media I write and schedule, which it sends to the platform to publish.</li>
+			<li>
+				Aggregate statistics for my own accounts and posts, such as follower, view and like
+				counts, where the platform provides them, so I can see how my posts perform.
+			</li>
 		</ul>
 
 		<h2 id="what-it-does-not-do">3. What it does not do</h2>
 		<p>
-			It does not collect data about other people. It does not sell or share data with anyone. It
-			shows no ads and runs no analytics.
+			It does not collect data about other people; the statistics it reads are aggregate counts for
+			my own accounts and posts. It does not sell data or share it with anyone other than the platform it
+			came from. It shows no ads and adds no tracking or third-party analytics.
 		</p>
 
 		<h2 id="youtube-and-tiktok">4. YouTube and TikTok</h2>
 		<p>
-			The app uses the <strong>YouTube API Services</strong>. From YouTube it reads my channel's
-			name, ID and picture, and it uploads the videos I make, with their titles, descriptions and
-			thumbnails. It stores only the OAuth tokens and basic channel information needed to publish,
-			and the post content I write. It shares none of this with anyone; it is sent only to YouTube,
-			to publish. By using it with YouTube you agree to the
+			The app uses the <strong>YouTube API Services</strong>. With my permission it accesses my
+			Google account's name and email address, my channel's details and videos, and aggregate
+			statistics for my channel and videos (YouTube Analytics), such as views and likes. It uses them to connect the channel, to upload and update
+			the videos I make (titles, descriptions and thumbnails), and to show me how they perform. It
+			stores the OAuth tokens and the basic account and channel information needed to publish, the
+			post content I write, and the statistics it reads. It does not sell any of this or share it
+			with anyone other than YouTube. By using it with YouTube you agree to the
 			<a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and Google's handling
 			of data is described in the
 			<a href="https://policies.google.com/privacy">Google Privacy Policy</a>. You can revoke its
@@ -79,8 +86,11 @@
 			<a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
 		</p>
 		<p>
-			From TikTok it uses only basic profile information (display name, ID and avatar) and
-			permission to post the videos I make to my own account. You can revoke its access in the
+			From TikTok it accesses my profile information (display name, ID, avatar and profile
+			details), aggregate account statistics (such as follower and like counts), the list of my
+			videos and their view, like, comment and share counts, and permission to post the videos I make to my own account. It uses them to
+			publish and to show me how my posts perform, and shares them with no one other than TikTok.
+			You can revoke its access in the
 			TikTok app under <strong>Settings and privacy &gt; Security &gt; Manage app
 			permissions</strong>.
 		</p>

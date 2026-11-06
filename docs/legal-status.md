@@ -482,22 +482,38 @@ Open items this page creates:
 Bluesky and LinkedIn (no more "Meta, and LinkedIn later"). **Material change:
 both pages' Effective and Last reviewed dates moved to 2026-11-06.**
 
-- **`/social/privacy/`** — intro lists all eight platforms. §2 now says the
-  stored credential for Bluesky is an app password (Postiz connects Bluesky with
-  handle + app password, not OAuth; social repo `docs/postiz.md`). **New §4
-  "YouTube and TikTok"**: states the app uses the YouTube API Services; what
-  YouTube data it reads (channel name, ID, picture), what it does (uploads the
-  owner's videos with title, description, thumbnail), what it stores (OAuth
-  tokens, basic channel info, post content), that nothing is shared except
-  sending posts to YouTube; links the YouTube Terms of Service, the Google
-  Privacy Policy and `https://myaccount.google.com/permissions` for revocation,
-  as Google's API Services policy requires. TikTok: basic profile info
-  (display name, ID, avatar) and posting only; revoke in the TikTok app under
-  Settings and privacy > Security > Manage app permissions. **Renumbered:** old
-  §4 Where data is kept → §5, §5 Removing access → §6, §6 Contact → §7.
-  Cross-references re-verified: nothing on the site links to these sections by
-  number; the hosting item above now points at §5. The "no analytics" and "no
-  data about other people" statements are unchanged.
+Source of truth for what the app accesses: the OAuth scopes Postiz **v2.25.3**
+(the pinned version) requests. It reads analytics, so the pages now say so.
+
+- YouTube: `userinfo.profile`, `userinfo.email`, `youtube`, `youtube.force-ssl`,
+  `youtube.readonly`, `youtube.upload`, `youtubepartner`,
+  `yt-analytics.readonly` → Google account name/email, channel info, uploads,
+  channel and video analytics.
+- TikTok: `user.info.basic`, `user.info.profile`, `user.info.stats`,
+  `video.list`, `video.upload`, `video.publish` → profile, follower/like stats,
+  the account's video list and metrics, posting.
+
+Changes:
+
+- **`/social/privacy/`** — intro lists all eight platforms. §2 adds the Bluesky
+  app password (Postiz connects Bluesky with handle + app password, not OAuth;
+  social repo `docs/postiz.md`) and a new bullet: statistics for the owner's own
+  accounts and posts, where the platform provides them, to show performance.
+  **§3 wording changed:** "runs no analytics" → "adds no tracking or
+  third-party analytics"; the statistics it reads are aggregate counts for the
+  owner's own accounts and posts; nothing is sold or shared with anyone other than the platform it came
+  from. **New §4 "YouTube and TikTok"**: states the app uses the YouTube API
+  Services; what YouTube data it accesses (per the scopes above), how it uses it
+  (connect, upload/update videos, show performance), what it stores (OAuth
+  tokens, basic account/channel info, post content, statistics read), that it is
+  not sold or shared beyond YouTube; links the YouTube Terms of Service, the
+  Google Privacy Policy and `https://myaccount.google.com/permissions`, as
+  Google's API Services policy requires. TikTok: profile, account stats, video
+  list and metrics, posting; revoke in the TikTok app under Settings and privacy
+  > Security > Manage app permissions. **Renumbered:** old §4 Where data is kept
+  → §5, §5 Removing access → §6, §6 Contact → §7. Cross-references re-verified:
+  nothing on the site links to these sections by number; the hosting item above
+  now points at §5.
 - **`/social/data-deletion/`** — §1 is now a per-platform list of removal
   paths: Google account permissions (YouTube), TikTok Manage app permissions,
   Meta Apps and websites / Business integrations (unchanged), X Connected apps,
@@ -505,12 +521,24 @@ both pages' Effective and Last reviewed dates moved to 2026-11-06.**
   §2 also deletes the basic account details stored with a connection. The
   30-day email response (§3) and section numbers are unchanged.
 
+Verified in the v2.25.3 source (`youtube.provider.ts`, `tiktok.provider.ts`):
+the analytics calls return aggregate counts only (views, likes, comment and
+share counts, followers); neither provider fetches comment text or commenter
+data, so "no data about other people" still holds for these two.
+
 Open items:
 
+- [x] **Analytics described accurately.** Closed 2026-11-06: an interim draft
+  of this change kept "runs no analytics", which was wrong for v2.25.3; §2–4
+  now describe the aggregate statistics read for the owner's own accounts.
+- [ ] **Scopes on a Postiz upgrade.** Re-read the requested scopes for every
+  provider whenever the Postiz pin moves past v2.25.3; if any scope reaches
+  data about other people (comments, messages, audience demographics beyond
+  totals), `/social/privacy/` §2–4 must change first, and Google's
+  verification will re-check the YouTube description.
+- [ ] **Statistics on the other platforms.** §2 says "where the platform
+  provides them" without naming scopes for Meta, X, LinkedIn or Bluesky;
+  confirm those against v2.25.3 when connecting each.
 - [ ] **Settings paths drift.** The X, LinkedIn, Bluesky and TikTok menu paths
   on `/social/data-deletion/` §1 are the platforms' current labels; re-check
   them at each review, and when connecting each account.
-- [ ] **YouTube data described in §4.** If the scheduler ever reads more from
-  YouTube than channel name/ID/picture (e.g. analytics, comments), §3–4 of
-  `/social/privacy/` must change before it does, and Google's verification
-  will re-check it.
