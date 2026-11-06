@@ -307,7 +307,10 @@ prerendered page present in the DOM but blank on screen.
 **`/work/` is where the full project list lives.** The home page shows the three
 `featured` projects, matching the reference composition; `/work/` renders all of
 them, and is the only surface that uses each project's long `blurb` and complete
-`tech` array (the home cards use `cardBlurb` and `tech.slice(0, 3)`). It also
+`tech` array (the home cards use `cardBlurb` and `tech.slice(0, 3)`). Both
+surfaces render in `site.projects` array order — there is no sort anywhere, so
+reordering that array is the only way to reorder `/work/`, and `featured`
+selects the home trio without affecting either page's order. It also
 gives the home page's "View all work" a destination — that link used to point at
 the GitHub profile, which promised a curated set and delivered a code host,
 off-site. Entries reuse `WorkThumb` and `.work-badge`; note the badge hangs 14px
