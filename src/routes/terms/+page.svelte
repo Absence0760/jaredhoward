@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SectionRail from '$lib/components/SectionRail.svelte';
+	import SectionRail from '#lib/components/SectionRail.svelte';
 
 	// Index for the >=1080px right rail. Kept beside the markup rather than
 	// derived from the DOM so it prerenders and works with no JavaScript.

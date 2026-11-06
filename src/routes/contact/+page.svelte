@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SectionRail from '$lib/components/SectionRail.svelte';
-	import { site } from '$lib/site';
+	import SectionRail from '#lib/components/SectionRail.svelte';
+	import { site } from '#lib/site.ts';
 
 	// No h2s on this page, so there is no index to build — but the address is
 	// the entire point of the route and it was buried in the third paragraph.

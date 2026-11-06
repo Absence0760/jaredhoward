@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 </script>
 
 <svelte:head>
-	<title>{$page.status} | Jared Howard</title>
+	<title>{page.status} | Jared Howard</title>
 </svelte:head>
 
 <article class="prose">
 	<header class="prose-header">
-		<h1>{$page.status} — {$page.error?.message ?? 'Something went wrong'}</h1>
+		<h1>{page.status} — {page.error?.message ?? 'Something went wrong'}</h1>
 	</header>
 	<div class="post-content">
 		<p>

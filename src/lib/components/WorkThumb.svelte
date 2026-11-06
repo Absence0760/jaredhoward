@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Project } from '$lib/site';
+	import type { Project } from '#lib/site.ts';
 
 	// Decorative preview panel for a work card. These are *abstractions*, not
 	// screenshots — hand-drawn SVG in the site's own palette, so nothing here

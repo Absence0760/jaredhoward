@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { Project } from '$lib/site';
-	import { reveal } from '$lib/reveal';
-	import { spotlight } from '$lib/spotlight';
+	import type { Project } from '#lib/site.ts';
+	import { reveal } from '#lib/reveal.ts';
+	import { spotlight } from '#lib/spotlight.ts';
 	import WorkThumb from './WorkThumb.svelte';
 	import Icon from './Icon.svelte';
 

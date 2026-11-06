@@ -1,10 +1,10 @@
 <script lang="ts">
 	import '../app.css';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { onNavigate } from '$app/navigation';
-	import { site } from '$lib/site';
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
-	import LandingFooter from '$lib/components/LandingFooter.svelte';
+	import { site } from '#lib/site.ts';
+	import SiteHeader from '#lib/components/SiteHeader.svelte';
+	import LandingFooter from '#lib/components/LandingFooter.svelte';
 
 	let { children } = $props();
 
@@ -19,7 +19,7 @@
 	// One shell for the whole site: the masthead and the footer card wrap every
 	// route. The landing page renders its own <main> because its bands are
 	// full-bleed; every other route gets the centred reading column below.
-	const isLanding = $derived($page.url.pathname === '/');
+	const isLanding = $derived(page.url.pathname === '/');
 
 	// Reproduce the old transitions.js 220ms cross-fade via the View
 	// Transitions API. Progressive enhancement: browsers without the API (or
@@ -45,7 +45,7 @@
 </script>
 
 <svelte:head>
-	<link rel="canonical" href={site.url + $page.url.pathname} />
+	<link rel="canonical" href={site.url + page.url.pathname} />
 </svelte:head>
 
 <SiteHeader />

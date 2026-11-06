@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { site } from '$lib/site';
-	import SectionRail from '$lib/components/SectionRail.svelte';
-	import WorkThumb from '$lib/components/WorkThumb.svelte';
-	import Icon from '$lib/components/Icon.svelte';
+	import { site } from '#lib/site.ts';
+	import SectionRail from '#lib/components/SectionRail.svelte';
+	import WorkThumb from '#lib/components/WorkThumb.svelte';
+	import Icon from '#lib/components/Icon.svelte';
 
 	// The home page shows three projects, matching the reference composition.
 	// This page is where the other three live, and where every project's long

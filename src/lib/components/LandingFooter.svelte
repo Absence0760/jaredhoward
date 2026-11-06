@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { site } from '$lib/site';
+	import { site } from '#lib/site.ts';
 	import Monogram from './Monogram.svelte';
 	import Icon from './Icon.svelte';
 

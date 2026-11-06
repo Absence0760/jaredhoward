@@ -23,7 +23,6 @@
   - changed-files:
       - any-glob-to-any-file:
           - src/**
-          - svelte.config.js
           - vite.config.ts
           - vitest.config.ts
           - tsconfig.json

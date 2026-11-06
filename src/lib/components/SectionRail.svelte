@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { railScrollDelta } from '$lib/railScroll';
+	import { railScrollDelta } from '#lib/railScroll.ts';
 
 	// The right-hand rail on reading pages, ≥1080px only.
 	//

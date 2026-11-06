@@ -13,7 +13,7 @@
 
 - [ ] Pages / components (`src/routes/`, `src/lib/`) — including the legal pages
 - [ ] Styles / site metadata (`src/app.css`, `src/lib/site.ts`)
-- [ ] Build config (`svelte.config.js`, `vite.config.ts`, `tsconfig.json`, `package.json`)
+- [ ] Build config (`vite.config.ts`, `tsconfig.json`, `package.json`)
 - [ ] Static assets (`static/` — `CNAME`, `cv.pdf`, `robots.txt`, `404.html`)
 - [ ] CI / GitHub Actions (`.github/`)
 - [ ] Project docs (`docs/`, `CLAUDE.md`, `README.md`, etc.)
