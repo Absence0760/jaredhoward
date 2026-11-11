@@ -95,6 +95,7 @@ export const site = {
 		{
 			name: 'FeohLedger',
 			repo: 'https://github.com/Absence0760/feohledger',
+			url: 'https://feohledger.com',
 			blurb:
 				'Full-stack accounts-payable app — multi-tenant invoice intake and approvals behind a Python API and a SvelteKit front end.',
 			tech: ['SvelteKit', 'FastAPI', 'Python', 'PostgreSQL'],
@@ -103,6 +104,30 @@ export const site = {
 				'Full-stack accounts-payable app — multi-tenant invoice intake and approvals behind a Python API.',
 			featured: true,
 			thumb: 'ledger'
+		},
+		{
+			name: 'IC-WBT',
+			repo: 'https://github.com/Absence0760/project-water-management',
+			url: 'https://icwbt.jaredhoward.com',
+			blurb:
+				'Daily catchment water-balance modelling in the browser — a web replacement for a spreadsheet tool, covering river flow from rainfall, farm irrigation demand, dams, transfers and environmental-flow checks, with per-project sharing. Serverless on AWS, provisioned with Terraform.',
+			tech: ['SvelteKit', 'Hono', 'PostgreSQL', 'AWS Lambda', 'Terraform'],
+			kind: 'Water modelling',
+			cardBlurb:
+				'Daily catchment water-balance model — farms, dams, irrigation demand and environmental-flow checks, in the browser.',
+			thumb: 'analytics'
+		},
+		{
+			name: 'EWR Compliance',
+			repo: 'https://github.com/Absence0760/ewr-compliance',
+			url: 'https://ewr-compliance.jaredhoward.com/signin/',
+			blurb:
+				'Compares observed river flows with Environmental Water Requirements across four river basins — a static, map-based web app where flow files a user loads never leave their browser, behind an invite-only sign-in on AWS.',
+			tech: ['SvelteKit', 'TypeScript', 'MapLibre', 'AWS Lambda', 'CloudFront', 'Terraform'],
+			kind: 'Water modelling',
+			cardBlurb:
+				'Checks observed river flows against Environmental Water Requirements on a map; loaded files stay in the browser.',
+			thumb: 'analytics'
 		},
 		{
 			name: 'disag',
