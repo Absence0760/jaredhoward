@@ -109,7 +109,7 @@ export const site = {
 			repo: 'https://github.com/Absence0760/project-disag',
 			blurb:
 				'Disaggregates monthly streamflow into daily flows — a Python port of a legacy Delphi/Pascal hydrology model, run locally as a Tkinter GUI or CLI.',
-			tech: ['Python', 'Tkinter'],
+			tech: ['Python', 'Tkinter', 'Delphi'],
 			kind: 'Scientific computing',
 			cardBlurb:
 				'Disaggregates monthly streamflow into daily flows — a Python port of a legacy Delphi hydrology model.',
