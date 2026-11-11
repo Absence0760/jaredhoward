@@ -46,6 +46,9 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # gitleaks reads the history from the local clone and reaches the
+          # API with its own GITHUB_TOKEN env, so the git credential is unused.
+          persist-credentials: false
           # `fetch-depth: 0` is required for the full-history scan on the
           # scheduled run. Push/PR triggers ignore the depth because they
           # have access to the base ref via the workflow event itself.
