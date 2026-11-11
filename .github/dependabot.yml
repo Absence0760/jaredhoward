@@ -19,6 +19,11 @@ updates:
       time: "06:00"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
+    # Wait 7 days after a release before proposing it, the same "at least
+    # seven days old" rule as the hand-made pins: a release pulled or found
+    # malicious in its first week never reaches a PR.
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: "chore(deps)"
       include: "scope"
@@ -44,6 +49,11 @@ updates:
       time: "06:00"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 3
+    # Wait 7 days after a release before proposing it, the same "at least
+    # seven days old" rule as the hand-made pins: a release pulled or found
+    # malicious in its first week never reaches a PR.
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: "chore(ci)"
       include: "scope"
