@@ -12,10 +12,11 @@ on:
     types: [published]
   workflow_dispatch:
 
+# Read-only by default: the build job, which runs `pnpm install` and the
+# build, holds only `contents: read`. The Pages grants live on the deploy
+# job alone, which runs no repository code.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -26,6 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Nothing in this job uses git credentials after checkout.
+          persist-credentials: false
 
       - name: Install pnpm
         # Version comes from the `packageManager` field in package.json.
@@ -35,7 +39,10 @@ jobs:
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
-          cache: pnpm
+          # No dependency cache in a production build: a cache is writable
+          # by any default-branch run, and this job's output is the live
+          # site. A cold `pnpm install --frozen-lockfile` is the cost.
+          package-manager-cache: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -57,6 +64,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write # publish the Pages deployment
+      id-token: write # deploy-pages proves its origin with an OIDC token
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
