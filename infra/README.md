@@ -7,9 +7,8 @@ provisioned AWS resource is the **`jaredhoward.com` Route 53 hosted zone**.
 This Terraform adopts that zone so DNS stops being hand-edited in the console.
 
 > **Why this is load-bearing.** The apex zone serves the live site, carries
-> the Migadu mail records (`docs/email-setup.md`), and delegates
-> `disag.jaredhoward.com` to another account. A wrong record + an `apply`
-> breaks site, email, or the disag delegation. Always `plan` and read the
+> the Migadu mail records (`docs/email-setup.md`). A wrong record + an
+> `apply` breaks the site or email. Always `plan` and read the
 > diff before `apply`. See `docs/domain-setup.md`.
 
 ## Layout
@@ -62,22 +61,6 @@ tag keep the slug from before the 2026-09-14 rename (account `Jared`, repo
 `jaredhoward`): S3 buckets can't be renamed, and a tag isn't worth an apply.
 Losing your laptop is fine — re-`init` elsewhere after
 `aws sso login`.
-
-## Cross-repo coupling: the disag.jaredhoward.com delegation
-
-`aws_route53_record.disag_ns` (in `dns/records.tf`, values in
-`dns/variables.tf` → `disag_delegation_ns`) is a **delegation pointer**, not a
-zone we own. The real `disag.jaredhoward.com` zone lives in **project-disag's**
-AWS account, created by the estate baseline; project-disag only
-*reads* it via `data "aws_route53_zone"`.
-
-**Direction of truth: disag's child-zone name servers → this NS record.** This
-repo mirrors them. If project-disag ever recreates its zone (account rebuild,
-zone destroy/recreate), AWS issues a new NS set and `disag_delegation_ns` here
-goes stale — `disag.jaredhoward.com` then fails to resolve until it's updated to
-match. The disag side, conversely, must not recreate that zone without updating
-this record. Tracked in [`../docs/todo.md`](../docs/todo.md) §2; re-verify with
-`dig NS disag.jaredhoward.com +short` against disag's live name servers.
 
 ## What is intentionally NOT here
 

@@ -23,37 +23,14 @@ The one-time adoption ran on 2026-07-10. Notes from the run (details in
 - [x] `dns` applied; `imports.tf` removed; follow-up plan is "No changes"
 
 Steady state from here: edit `records.tf`, `terraform plan`, read the diff,
-`terraform apply` — every apply is still load-bearing (live site, Migadu mail,
-disag delegation).
+`terraform apply` — every apply is still load-bearing (live site, Migadu mail).
 
-## 2. Keep the `disag.jaredhoward.com` delegation in sync — CROSS-REPO
+## 2. ~~Keep the `disag.jaredhoward.com` delegation in sync~~ — retired 2026-11-11
 
-This repo and **project-disag** are coupled through one DNS hand-off, and both
-sides have to stay conscious of it:
-
-- **Child zone** `disag.jaredhoward.com` lives in **project-disag's** AWS account,
-  created by the estate baseline (`new-project-account.sh
-  disag`). project-disag *references* it via `data "aws_route53_zone"` — it does
-  not create it, and its name servers are assigned by AWS when that zone is made.
-- **Parent NS delegation** lives **here**, in `infra/dns/records.tf`
-  (`aws_route53_record.disag_ns`), with the four NS values in
-  `infra/dns/variables.tf` (`disag_delegation_ns`).
-
-**The child zone's name servers are the source of truth; this repo only mirrors
-them.** If project-disag's child zone is ever recreated (account rebuild, zone
-`destroy`/recreate, region move), AWS issues a **new** NS set and the values here
-go stale → `disag.jaredhoward.com` stops resolving until `disag_delegation_ns` is
-updated to match. Conversely, nobody on the disag side should assume the zone can
-be freely recreated without updating this record.
-
-- [x] Mirror this coupling note into project-disag — done in its
-      `web/infra/route53.tf` (commit `7cf4b3f`, on `main`), where the zone is
-      referenced, so the disag side is warned before recreating its zone.
-- [x] When section 1's apply runs, re-verify `disag_delegation_ns` still matches
-      disag's live child-zone name servers (query disag's account, or
-      `dig NS disag.jaredhoward.com +short`) before applying — verified
-      2026-07-10 against the child zone's authoritative delegation set
-      (`Z0902104SIJBX05AR40E` in the disag account); all four NS match.
+project-disag's hosted web app was decommissioned (Absence0760/project-disag#152)
+and the tool is now local-only, so the `disag_ns` delegation record and the
+`disag_delegation_ns` variable were removed. Nothing in this zone points at
+another account any more.
 
 ## 3. (Future) consider whether DNS apply should move to CI
 
