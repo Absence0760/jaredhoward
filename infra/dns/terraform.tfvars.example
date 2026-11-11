@@ -5,5 +5,5 @@
 #
 #   tags = { Owner = "jared" }
 #
-# The DNS-shaping defaults (GitHub Pages IPs, Migadu records, disag NS)
+# The DNS-shaping defaults (GitHub Pages IPs, Migadu records)
 # live in variables.tf because they are not secret and rarely change.

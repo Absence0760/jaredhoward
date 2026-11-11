@@ -27,17 +27,6 @@ variable "pages_cname_target" {
   default     = "absence0760.github.io"
 }
 
-variable "disag_delegation_ns" {
-  description = "NS records for the disag.jaredhoward.com child zone, delegated to project-disag's own Route 53 zone. Sourced from that zone's name servers — see docs/domain-setup.md."
-  type        = list(string)
-  default = [
-    "ns-1761.awsdns-28.co.uk",
-    "ns-935.awsdns-52.net",
-    "ns-125.awsdns-15.com",
-    "ns-1256.awsdns-29.org",
-  ]
-}
-
 variable "tags" {
   description = "Extra tags merged onto the hosted zone."
   type        = map(string)

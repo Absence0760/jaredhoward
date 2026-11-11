@@ -107,10 +107,9 @@ export const site = {
 		{
 			name: 'disag',
 			repo: 'https://github.com/Absence0760/project-disag',
-			url: 'https://disag.jaredhoward.com',
 			blurb:
-				'Disaggregates monthly streamflow into daily flows — a Python port of a legacy Delphi/Pascal hydrology model, with a SvelteKit web app and cross-platform CLI.',
-			tech: ['Python', 'SvelteKit', 'Terraform'],
+				'Disaggregates monthly streamflow into daily flows — a Python port of a legacy Delphi/Pascal hydrology model, run locally as a Tkinter GUI or CLI.',
+			tech: ['Python', 'Tkinter', 'Delphi'],
 			kind: 'Scientific computing',
 			cardBlurb:
 				'Disaggregates monthly streamflow into daily flows — a Python port of a legacy Delphi hydrology model.',

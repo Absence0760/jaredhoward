@@ -14,7 +14,7 @@ to be repointed or replaced. The repo's current state is:
 > records below (different record types), so the two setups don't collide.
 
 > **DNS is now Terraform-managed.** The `jaredhoward.com` zone and every record
-> in this doc (website + Migadu mail + the `disag` delegation) are codified in
+> in this doc (website + Migadu mail) are codified in
 > [`infra/dns`](../infra/README.md) and were adopted from the live zone by
 > `terraform import` — nothing was recreated. In steady state, change DNS by
 > editing `infra/dns/records.tf` (or the defaults in `variables.tf`) and running
