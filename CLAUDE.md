@@ -85,13 +85,14 @@ Run these as slash-commands. Each delegates to a specialised agent in `.claude/a
 - `docs/smooth-transitions.md` — feature note for the page cross-fade (now the View Transitions API, wired in `src/routes/+layout.svelte`).
 - `.github/workflows/ci.yml` — PR gate: `pnpm check` + `pnpm test` + `pnpm build` + `pnpm build:pdf` + `pnpm test:e2e`, aggregated by the required `CI gate` job.
 - `e2e/` + `playwright.config.ts` — Playwright browser suite over the built `./build`, served by `scripts/serve_build.mjs` the way GitHub Pages serves it (`vite preview` would answer unknown URLs with SvelteKit's error page instead of the static `404.html`). See `docs/run-locally.md` → "What each gate can and cannot see".
-- `.github/workflows/deploy.yml` — release-gated deploy to GitHub Pages (builds `build/`, publishes on a GitHub Release / manual dispatch, not on push to `main`).
+- `.github/workflows/deploy.yml` — release-gated deploy to GitHub Pages (builds `build/`, publishes on a GitHub Release / manual dispatch, not on push to `main`). The build job is read-only and restores no dependency cache; only the deploy job holds `pages: write` + `id-token: write`.
 - `.github/workflows/gitleaks.yml` — secret scanning.
 - `.github/workflows/security.yml` — CodeQL static analysis (JS/TS + Actions). Was `codeql.yml`; renamed in the base-scaffolding sync.
-- `.github/workflows/audit.yml` — on-demand `/audit/*` sweeps.
+- `.github/workflows/audit.yml` — weekly `pnpm audit`; a read-only job runs the audit and a separate `report` job (no repo code) alone may open/close the `dependency-audit` issue.
 - `.github/workflows/ci-gate-docs.yml` — satisfies the required `CI gate` check for docs-only PRs without running the heavy jobs. See "Merging & branch protection".
 - `.github/workflows/scorecard.yml` — OSSF Scorecard.
+- `.github/workflows/supply-chain-scan.yml` — **advisory** zizmor (workflow security) + osv-scanner (lockfiles, offline OSV database) on every PR, push to `main` and weekly; SARIF to code scanning, never fails on a finding and is not in `CI gate`. Reviewed, expiring osv ignores live in the root `osv-scanner.toml`; a kept zizmor finding gets an inline `# zizmor: ignore[rule]` with its reason.
 - `.github/workflows/claude.yml` — Claude Code automation on PRs/issues (operator-gated).
-- `.github/workflows/dependabot-auto-merge.yml` — approves + queues minor/patch Dependabot bumps (npm + Actions). Both actions are best-effort: the repo has "Allow auto-merge" **off** and Actions cannot approve PRs, so in practice bumps are merged by hand and the workflow just reports a notice. Turn on Settings → General → "Allow auto-merge" to make it land them unattended.
-- `.github/dependabot.yml` — npm (Svelte toolchain) + GitHub Actions version updates. TypeScript majors are ignored: `svelte-check` 4.x cannot consume TS 7, so a grouped major sweep breaks `pnpm check`.
+- `.github/workflows/dependabot-auto-merge.yml` — approves + queues minor/patch Dependabot bumps (npm + Actions). Runs on `pull_request` (not `_target`) and gates on the PR author, not `github.actor`. Both actions are best-effort: the repo has "Allow auto-merge" **off** and Actions cannot approve PRs, so in practice bumps are merged by hand and the workflow just reports a notice. Turn on Settings → General → "Allow auto-merge" to make it land them unattended.
+- `.github/dependabot.yml` — npm (Svelte toolchain) + GitHub Actions version updates, each with a 7-day `cooldown`. TypeScript majors are ignored: `svelte-check` 4.x cannot consume TS 7, so a grouped major sweep breaks `pnpm check`.
 - `SECURITY.md` — vulnerability reporting policy.
