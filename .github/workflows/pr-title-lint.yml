@@ -11,6 +11,7 @@ name: pr-title-lint
 # PR may not be worth it if you're the only contributor.
 
 on:
+  # zizmor: ignore[dangerous-triggers] -- needed so a conflicting PR (no merge ref, no `pull_request` run) still gets its title linted; no checkout, the action reads the title as data, token is pull-requests: read.
   pull_request_target:
     types: [opened, edited, reopened, synchronize]
 

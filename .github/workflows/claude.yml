@@ -1,6 +1,7 @@
 name: Claude Code
 
 on:
+  # zizmor: ignore[dangerous-triggers] -- comments have no other trigger; the job runs only when the owner (github.actor == vars.CLAUDE_AUTHORIZED_USER, re-checked in its first step) asks, so no third party's text reaches it.
   issue_comment:
     types: [created]
   pull_request_review_comment:
@@ -58,6 +59,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # The action pushes with its own token: it strips whatever
+          # credential checkout persisted and sets up its own
+          # (configureGitAuth in claude-code-action), so a persisted one
+          # would only sit on disk unused.
+          persist-credentials: false
           fetch-depth: 0
 
       # Bash allowlist is deliberately tight. Broad patterns like
@@ -69,7 +75,7 @@ jobs:
       # `pnpm test` (Vitest) are the check + test surfaces. `pnpm install`
       # is allowed because the build needs the dependency tree.
       - name: Run Claude Code
-        uses: anthropics/claude-code-action@4845bacbb38b3c4b15d948f035349786f678e068 # v1
+        uses: anthropics/claude-code-action@4845bacbb38b3c4b15d948f035349786f678e068 # v1.0.267
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}

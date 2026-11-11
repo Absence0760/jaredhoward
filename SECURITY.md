@@ -51,6 +51,26 @@ project rather than to me:
 - Theoretical vulnerabilities without a practical exploit, or
   best-practice deviations that do not produce a concrete impact.
 
+## Defensive scaffolding
+
+- **Secret scanning** — `.github/workflows/gitleaks.yml` on every push, PR
+  and weekly, plus the pre-commit hook.
+- **Dependency audit** — `.github/workflows/audit.yml` runs `pnpm audit`
+  weekly and keeps a tracking issue open while moderate-or-higher findings
+  exist.
+- **Static analysis** — `.github/workflows/security.yml` runs CodeQL
+  (JavaScript/TypeScript and Actions).
+- **Supply-chain scoring** — `.github/workflows/scorecard.yml` runs OpenSSF
+  Scorecard; results flow to the Security tab.
+- **Workflow and dependency scanning** —
+  `.github/workflows/supply-chain-scan.yml` runs zizmor over the GitHub
+  Actions workflows and osv-scanner over the lockfiles (offline OSV
+  database, no package list sent anywhere) on every PR, push to `main` and
+  weekly. Advisory: findings go to code scanning, and neither check blocks
+  a merge until it is added to the code-scanning merge ruleset.
+- **Automated updates** — `.github/dependabot.yml` opens grouped weekly PRs
+  with a 7-day release cooldown; GitHub Actions are SHA-pinned.
+
 ## What this policy is not
 
 This policy covers vulnerabilities in the static site itself. It does

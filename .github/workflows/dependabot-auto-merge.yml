@@ -19,26 +19,33 @@ name: Dependabot auto-merge
 # configured in branch protection) before landing. A red CI run keeps the PR
 # queued indefinitely until either a human intervenes or the PR is closed.
 
+# `pull_request`, not `pull_request_target`: GitHub runs a Dependabot PR's
+# `pull_request` workflow with the `permissions:` it declares, so the
+# base-branch context bought nothing but the risk of running with write
+# scopes on a PR's event. The cost is no run on a conflicting PR, which
+# cannot auto-merge anyway.
 on:
-  pull_request_target:
+  pull_request:
     branches: [main]
 
-permissions: read-all
+permissions: {}
 
 jobs:
   auto-merge:
     name: Auto-merge minor + patch
     runs-on: ubuntu-latest
-    # Pull-request author check guards against any non-dependabot PR
-    # accidentally tripping this. The fetch-metadata action below is
-    # hardened against forged commit messages from compromised branches,
-    # but a belt-and-braces author gate costs nothing.
-    if: github.actor == 'dependabot[bot]'
+    # Gate on the PR's AUTHOR, not `github.actor`: the actor names whoever
+    # caused this one event, not who opened the PR, so it can read
+    # `dependabot[bot]` on a PR someone else opened. The fetch-metadata
+    # step below then refuses a PR whose commits are not verified
+    # Dependabot commits, so a human push onto a Dependabot branch does not
+    # ride the author check through.
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     timeout-minutes: 5
     permissions:
-      # `pull_request_target` runs in the base-branch context — needs
-      # explicit write grants for `gh pr review --approve` and
-      # `gh pr merge --auto`. Scoped to this job only so a future job
+      # Explicit write grants for `gh pr review --approve` and
+      # `gh pr merge --auto` (a Dependabot `pull_request` run is read-only
+      # unless the workflow asks). Scoped to this job only so a future job
       # in this workflow doesn't silently inherit them.
       contents: write
       pull-requests: write
