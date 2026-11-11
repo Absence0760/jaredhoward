@@ -5,7 +5,7 @@
 	import Icon from '#lib/components/Icon.svelte';
 
 	// The home page shows three projects, matching the reference composition.
-	// This page is where the other three live, and where every project's long
+	// This page is where the rest live, and where every project's long
 	// `blurb` and full `tech` list are actually rendered — the home cards use
 	// the short `cardBlurb` and the first three technologies only.
 	//
@@ -30,7 +30,7 @@
 	<title>Work | Jared Howard</title>
 	<meta
 		name="description"
-		content="Public projects by Jared Howard — test tooling, e-commerce, internal tools, mobile, scientific computing and a game engine."
+		content="Public projects by Jared Howard — test tooling, e-commerce, internal tools, mobile, water modelling, scientific computing and a game engine."
 	/>
 </svelte:head>
 
@@ -42,8 +42,9 @@
 	<div class="post-content">
 		<p>
 			Public projects, each with its source on GitHub. They span the range I actually work
-			across — test tooling and CI, e-commerce, internal business apps, mobile, scientific
-			computing, and a game engine — rather than one narrow stack repeated six times.
+			across — test tooling and CI, e-commerce, internal business apps, mobile, water
+			modelling, scientific computing, and a game engine — rather than one narrow stack
+			repeated eight times.
 		</p>
 
 		<ul class="work-entries">
