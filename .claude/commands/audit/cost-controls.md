@@ -11,7 +11,7 @@ This site runs on the **GitHub Pages free tier**. There is no AWS bill, no <CMS>
 The only loosely-spend-related knobs in-tree are:
 
 - **`.github/dependabot.yml`** — `open-pull-requests-limit: 3` caps the weekly PR queue. Below 5 is fine for a small repo.
-- **GitHub Actions usage** — this repo's workflows (CI, CodeQL, gitleaks, Scorecard, Dependabot auto-merge, Claude Code, deploy, labeler, PR title lint) run on the GitHub-Actions free minutes quota for a public repo. Public repos get unlimited free minutes; not a cost vector here.
+- **GitHub Actions usage** — this repo's workflows (CI, CodeQL, secret scan, Scorecard, Dependabot auto-merge, Claude Code, deploy, labeler, PR title lint) run on the GitHub-Actions free minutes quota for a public repo. Public repos get unlimited free minutes; not a cost vector here.
 
 There is nothing in-tree to audit for cost.
 

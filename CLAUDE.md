@@ -86,7 +86,7 @@ Run these as slash-commands. Each delegates to a specialised agent in `.claude/a
 - `.github/workflows/ci.yml` — PR gate: `pnpm check` + `pnpm test` + `pnpm build` + `pnpm build:pdf` + `pnpm test:e2e`, aggregated by the required `CI gate` job.
 - `e2e/` + `playwright.config.ts` — Playwright browser suite over the built `./build`, served by `scripts/serve_build.mjs` the way GitHub Pages serves it (`vite preview` would answer unknown URLs with SvelteKit's error page instead of the static `404.html`). See `docs/run-locally.md` → "What each gate can and cannot see".
 - `.github/workflows/deploy.yml` — release-gated deploy to GitHub Pages (builds `build/`, publishes on a GitHub Release / manual dispatch, not on push to `main`). The build job is read-only and restores no dependency cache; only the deploy job holds `pages: write` + `id-token: write`.
-- `.github/workflows/gitleaks.yml` — secret scanning.
+- `.github/workflows/secret-scan.yml` — secret scanning (TruffleHog).
 - `.github/workflows/security.yml` — CodeQL static analysis (JS/TS + Actions). Was `codeql.yml`; renamed in the base-scaffolding sync.
 - `.github/workflows/audit.yml` — weekly `pnpm audit`; a read-only job runs the audit and a separate `report` job (no repo code) alone may open/close the `dependency-audit` issue.
 - `.github/workflows/ci-gate-docs.yml` — satisfies the required `CI gate` check for docs-only PRs without running the heavy jobs. See "Merging & branch protection".

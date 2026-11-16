@@ -50,7 +50,7 @@ For each: the literal pattern name and the file:line, what should change. **Neve
 
 ## Useful starting points
 
-- `.github/workflows/gitleaks.yml` — the existing automated sweep
+- `.github/workflows/secret-scan.yml` — the existing automated sweep (TruffleHog)
 - `.github/workflows/claude.yml` — the only workflow here that legitimately references a secret
 - `.gitignore` — currently single-line; the back-stop for anything added later
 - `.pre-commit-config.yaml` — the pre-commit gitleaks hook

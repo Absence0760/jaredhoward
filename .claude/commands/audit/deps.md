@@ -29,7 +29,7 @@ This repo has a real npm dependency tree in `package.json` (SvelteKit / Vite / S
      - `.github/workflows/dependabot-auto-merge.yml` (contents/pull-requests write) — Critical if floating.
      - `.github/workflows/labeler.yml` (pull-requests write) — High.
      - `.github/workflows/pr-title-lint.yml` (read-only) — Low.
-     - `.github/workflows/ci.yml`, `security.yml`, `gitleaks.yml`, `scorecard.yml` — Medium / High depending on permissions.
+     - `.github/workflows/ci.yml`, `security.yml`, `secret-scan.yml`, `scorecard.yml` — Medium / High depending on permissions.
    - At time of last audit, every workflow in this repo pins by SHA with the version comment alongside (commit `89ab7ca` "ci: SHA-pin actions in deploy and ci workflows for Scorecard"). Expected state: all SHA-pinned.
 
 4. **Action-version drift.**
