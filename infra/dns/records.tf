@@ -18,6 +18,19 @@ resource "aws_route53_record" "www_cname" {
   records = [var.pages_cname_target]
 }
 
+# GitHub Pages domain verification for the jaredhoward-dev org
+# (Absence0760/project-mgmt#14, 2026-11-16). Lets the org's repos publish
+# jaredhoward.com once the `jaredhoward` repo moves there, and stops other
+# accounts claiming it. GitHub gives the value at org Settings → Pages →
+# Verified domains. Keep it after verifying; GitHub re-checks it.
+resource "aws_route53_record" "github_pages_challenge_org" {
+  zone_id = aws_route53_zone.apex.zone_id
+  name    = "_github-pages-challenge-jaredhoward-dev.${var.apex_domain}"
+  type    = "TXT"
+  ttl     = 300
+  records = ["13b9ad29d8d1e9158d3944d5905de5"]
+}
+
 # ─────────────────── Migadu mail (see docs/email-setup.md) ───────────────────
 
 resource "aws_route53_record" "mx" {
