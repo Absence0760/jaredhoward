@@ -27,7 +27,7 @@ Steady state from here: edit `records.tf`, `terraform plan`, read the diff,
 
 ## 2. ~~Keep the `disag.jaredhoward.com` delegation in sync~~ — retired 2026-11-11
 
-project-disag's hosted web app was decommissioned (Absence0760/project-disag#152)
+project-disag's hosted web app was decommissioned (jaredhoward-dev/project-disag#152)
 and the tool is now local-only, so the `disag_ns` delegation record and the
 `disag_delegation_ns` variable were removed. Nothing in this zone points at
 another account any more.
