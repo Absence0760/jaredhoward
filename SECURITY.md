@@ -53,8 +53,9 @@ project rather than to me:
 
 ## Defensive scaffolding
 
-- **Secret scanning** — `.github/workflows/gitleaks.yml` on every push, PR
-  and weekly, plus the pre-commit hook.
+- **Secret scanning** — `.github/workflows/secret-scan.yml` runs TruffleHog on
+  every push, PR and weekly; a verified (live) or unverifiable credential
+  fails it. The gitleaks pre-commit hook is the local layer.
 - **Dependency audit** — `.github/workflows/audit.yml` runs `pnpm audit`
   weekly and keeps a tracking issue open while moderate-or-higher findings
   exist.
