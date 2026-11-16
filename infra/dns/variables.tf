@@ -22,9 +22,9 @@ variable "github_pages_a_records" {
 }
 
 variable "pages_cname_target" {
-  description = "GitHub Pages host the apex/www CNAME points at (the <org>.github.io for Absence0760)."
+  description = "GitHub Pages host the www CNAME points at: the owner's <owner>.github.io (the jaredhoward-dev org since project-mgmt#14)."
   type        = string
-  default     = "absence0760.github.io"
+  default     = "jaredhoward-dev.github.io"
 }
 
 variable "tags" {

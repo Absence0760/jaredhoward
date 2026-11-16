@@ -60,11 +60,12 @@ In the hosted zone for the domain, create:
 **`www` subdomain** — a CNAME record pointing at the GitHub Pages host:
 
 ```
-absence0760.github.io
+jaredhoward-dev.github.io
 ```
 
-(That's the username — Pages uses `<user>.github.io`, not the repo name, as
-the CNAME target.)
+(That's the owner — Pages uses `<owner>.github.io`, not the repo name, as
+the CNAME target. The repo moved from the `Absence0760` account to the
+`jaredhoward-dev` org; it was `absence0760.github.io` before.)
 
 If you want IPv6 too, add AAAA records at the apex:
 
