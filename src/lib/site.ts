@@ -57,7 +57,7 @@ export const site = {
 	projects: [
 		{
 			name: 'Cross-platform fitness app',
-			repo: 'https://github.com/Absence0760/threkir',
+			repo: 'https://github.com/jaredhoward-dev/threkir',
 			url: 'https://threkir.com',
 			blurb:
 				'Running, gym, and nutrition app — Flutter on iOS and Android with native Apple Watch and Wear OS companions, a SvelteKit web app, and a Supabase backend.',
@@ -69,7 +69,7 @@ export const site = {
 		},
 		{
 			name: 'Flakey',
-			repo: 'https://github.com/Absence0760/project-flakey',
+			repo: 'https://github.com/jaredhoward-dev/project-flakey',
 			blurb:
 				'Self-hosted, CI-agnostic test-reporting dashboard — ingests Cypress, Playwright, Jest, and pytest results with flaky-test detection and multi-tenant Postgres row-level security.',
 			tech: ['SvelteKit', 'TypeScript', 'Node', 'PostgreSQL', 'Docker'],
@@ -81,7 +81,7 @@ export const site = {
 		},
 		{
 			name: 'Meryl Green Designs',
-			repo: 'https://github.com/Absence0760/meryl-green-designs',
+			repo: 'https://github.com/jaredhoward-dev/meryl-green-designs',
 			url: 'https://merylgreendesigns.com',
 			blurb:
 				'E-commerce site for a design studio — gallery, PayFast checkout, and an owner-managed CMS. Serverless on AWS, provisioned end-to-end with Terraform.',
@@ -94,7 +94,7 @@ export const site = {
 		},
 		{
 			name: 'FeohLedger',
-			repo: 'https://github.com/Absence0760/feohledger',
+			repo: 'https://github.com/jaredhoward-dev/feohledger',
 			url: 'https://feohledger.com',
 			blurb:
 				'Full-stack accounts-payable app — multi-tenant invoice intake and approvals behind a Python API and a SvelteKit front end.',
@@ -107,7 +107,7 @@ export const site = {
 		},
 		{
 			name: 'IC-WBT',
-			repo: 'https://github.com/Absence0760/project-water-management',
+			repo: 'https://github.com/jaredhoward-dev/project-water-management',
 			url: 'https://icwbt.jaredhoward.com',
 			blurb:
 				'Daily catchment water-balance modelling in the browser — a web replacement for a spreadsheet tool, covering river flow from rainfall, farm irrigation demand, dams, transfers and environmental-flow checks, with per-project sharing. Serverless on AWS, provisioned with Terraform.',
@@ -119,7 +119,7 @@ export const site = {
 		},
 		{
 			name: 'EWR Compliance',
-			repo: 'https://github.com/Absence0760/ewr-compliance',
+			repo: 'https://github.com/jaredhoward-dev/ewr-compliance',
 			url: 'https://ewr-compliance.jaredhoward.com/signin/',
 			blurb:
 				'Compares observed river flows with Environmental Water Requirements across four river basins — a static, map-based web app where flow files a user loads never leave their browser, behind an invite-only sign-in on AWS.',
@@ -131,7 +131,7 @@ export const site = {
 		},
 		{
 			name: 'disag',
-			repo: 'https://github.com/Absence0760/project-disag',
+			repo: 'https://github.com/jaredhoward-dev/project-disag',
 			blurb:
 				'Disaggregates monthly streamflow into daily flows — a Python port of a legacy Delphi/Pascal hydrology model, run locally as a Tkinter GUI or CLI.',
 			tech: ['Python', 'Tkinter', 'Delphi'],
@@ -142,7 +142,7 @@ export const site = {
 		},
 		{
 			name: 'Going Dark',
-			repo: 'https://github.com/Absence0760/project-gonedark',
+			repo: 'https://github.com/jaredhoward-dev/project-gonedark',
 			blurb:
 				'Mobile-first RTS/FPS hybrid — command camps, then possess a single unit and go dark. Pre-production design plus a custom Rust game engine.',
 			tech: ['Rust', 'WGSL', 'Kotlin'],

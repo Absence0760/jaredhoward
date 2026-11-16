@@ -13,7 +13,7 @@ crash.*.log
 .envrc.local
 
 # This repo is PUBLIC and has NO backend/secrets (see CLAUDE.md). Production
-# secrets for the estate live in the private Absence0760/infra-secrets repo
+# secrets for the estate live in the private jaredhoward-dev/infra-secrets repo
 # (cloned at ../infra-secrets), one subdir per project. Guard against any
 # decrypted scratch sneaking in here.
 *.dec
