@@ -5,25 +5,25 @@
 # means a PR with no other matches still gets routed.
 
 # Catch-all
-*                                       @Absence0760
+*                                       @jaredhowardza
 
 # CI / production-impact
-/.github/workflows/                     @Absence0760
-/.github/dependabot.yml                 @Absence0760
-/.github/CODEOWNERS                     @Absence0760
+/.github/workflows/                     @jaredhowardza
+/.github/dependabot.yml                 @jaredhowardza
+/.github/CODEOWNERS                     @jaredhowardza
 
 # Security-sensitive scaffolding
-/SECURITY.md                            @Absence0760
-/.pre-commit-config.yaml                @Absence0760
+/SECURITY.md                            @jaredhowardza
+/.pre-commit-config.yaml                @jaredhowardza
 
 # Legal pages — load-bearing per docs/legal-status.md; don't merge edits
 # to these without going through the tracker.
-/content/terms.md                       @Absence0760
-/content/privacy.md                     @Absence0760
-/content/refunds.md                     @Absence0760
-/content/contact.md                     @Absence0760
-/docs/legal-status.md                   @Absence0760
+/content/terms.md                       @jaredhowardza
+/content/privacy.md                     @jaredhowardza
+/content/refunds.md                     @jaredhowardza
+/content/contact.md                     @jaredhowardza
+/docs/legal-status.md                   @jaredhowardza
 
 # Claude tooling
-/.claude/                               @Absence0760
-/CLAUDE.md                              @Absence0760
+/.claude/                               @jaredhowardza
+/CLAUDE.md                              @jaredhowardza
