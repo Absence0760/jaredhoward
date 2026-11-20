@@ -35,7 +35,7 @@ export const site = {
 	description:
 		'Custom web and software development for small businesses and government agencies.',
 	url: 'https://jaredhoward.com',
-	github: 'https://github.com/Absence0760',
+	github: 'https://github.com/jaredhowardza',
 	email: 'jared@jaredhoward.com',
 
 	// Sidebar navigation (order matters).
