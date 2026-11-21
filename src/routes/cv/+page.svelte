@@ -52,13 +52,48 @@
 
 	<h2 id="summary">Summary</h2>
 	<p>
-		Software engineer working as a QA Software Engineer at enChoice, Inc., with a background
-		leading the development and maintenance of automated Cypress and Playwright test suites.
-		Alongside the day job I run an independent practice building and maintaining custom web
-		applications for small-business clients.
+		Software engineer who builds and maintains custom web applications, internal tools and
+		data-heavy web apps through an independent practice, alongside a full-time role as a QA
+		Software Engineer at enChoice, Inc. Background in leading the development of automated Cypress
+		and Playwright test suites.
 	</p>
 
 	<h2 id="experience">Experience</h2>
+
+	<h3>Independent Software Developer (self-employed) — March 2026–Present</h3>
+	<p>Client work:</p>
+	<ul>
+		<li>
+			Built a daily catchment water-balance web app that replaced a client's spreadsheet model: river
+			flow from rainfall, farm irrigation demand, dams, transfers and environmental-flow checks, with
+			per-project sharing. SvelteKit, Hono and PostgreSQL, serverless on AWS, provisioned with
+			Terraform.
+		</li>
+		<li>
+			Built a map-based web app that checks observed river flows against Environmental Water
+			Requirements across four river basins, behind an invite-only sign-in; flow files a user loads
+			never leave their browser. SvelteKit, MapLibre, AWS Lambda and CloudFront.
+		</li>
+		<li>
+			Built an e-commerce site for a design studio: gallery, PayFast checkout and an owner-managed
+			CMS, serverless on AWS and provisioned with Terraform.
+		</li>
+	</ul>
+	<p>Own products:</p>
+	<ul>
+		<li>
+			FeohLedger: multi-tenant accounts-payable app (invoice intake and approvals) with a FastAPI
+			backend and a SvelteKit front end.
+		</li>
+		<li>
+			Threkir: running, gym and nutrition app in Flutter with Apple Watch and Wear OS companions, a
+			SvelteKit web app and a Supabase backend.
+		</li>
+		<li>
+			Flakey: self-hosted test-reporting dashboard for Cypress, Playwright, Jest and pytest results,
+			with flaky-test detection.
+		</li>
+	</ul>
 
 	<h3>QA Software Engineer at enChoice, Inc. — May 2025–Present</h3>
 	<ul>
@@ -69,7 +104,7 @@
 		<li>Contributing to scrums and sprint planning on a daily/weekly basis.</li>
 	</ul>
 
-	<h3>Senior SDET at Paymerang — April 2023–April 2025</h3>
+	<h3>Software Development Engineer in Test at Paymerang — April 2023–April 2025</h3>
 	<ul>
 		<li>
 			Leading the development of several automation projects, employing tools such as Cypress and
@@ -123,8 +158,16 @@
 	</ul>
 
 	<h2 id="skills">Skills</h2>
-	<p><strong>Programming:</strong> Javascript, Python, HCL</p>
-	<p><strong>Software:</strong> Gitlab, Github, Azure Devops, AWS, GCP, Jira</p>
+	<p><strong>Programming:</strong> TypeScript, JavaScript, Python, Dart, Rust, SQL, HCL</p>
+	<p>
+		<strong>Frameworks &amp; testing:</strong> SvelteKit, Svelte, Flutter, FastAPI, Hono,
+		Playwright, Cypress
+	</p>
+	<p>
+		<strong>Platforms &amp; tools:</strong> AWS (Lambda, CloudFront, S3, Route 53, SES), Terraform,
+		PostgreSQL, Supabase, Docker, GitHub Actions, GitLab, Azure DevOps, Bitbucket Pipelines, GCP,
+		Jira
+	</p>
 	<p>
 		<strong>Relevant Coursework:</strong> Data Structures and Algorithms, Object Oriented Software
 		Design, Introduction to Artificial Intelligence, Computer Architecture, Calculus, Discrete
