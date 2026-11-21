@@ -104,7 +104,7 @@
 		<li>Contributing to scrums and sprint planning on a daily/weekly basis.</li>
 	</ul>
 
-	<h3>Senior SDET at Paymerang — April 2023–April 2025</h3>
+	<h3>Software Development Engineer in Test at Paymerang — April 2023–April 2025</h3>
 	<ul>
 		<li>
 			Leading the development of several automation projects, employing tools such as Cypress and
